@@ -7,8 +7,8 @@ export const pl: typeof en = {
     langToggle: 'EN',
   },
   hero: {
-    headline: 'Twój towarzysz IVF, nareszcie stworzony dla Ciebie.',
-    subheadline: 'Śledź każdy zastrzyk. Rozumiej każdy wynik badania. Honoruj każdą emocję.',
+    headline: 'Śledź leki, badania i wizyty — bez stresu.',
+    subheadline: 'Zapisuj leki, badania lub nastrój jednym dotknięciem. Zobacz swoją oś czasu. Dziel ją z partnerem. Trzymaj rękę na pulsie.',
     emailPlaceholder: 'Twój adres e-mail',
     ctaButton: 'Powiadom mnie',
     thankyou: 'Jesteś na liście! Damy znać, gdy Lumia będzie gotowa. 🌸',
@@ -19,7 +19,7 @@ export const pl: typeof en = {
       id: 'quicklog',
       tag: 'Szybkie logowanie',
       headline: 'Zapisz wszystko jednym dotknięciem.',
-      body: 'Zastrzyki, badania, nastrój, wizyty — cały dzień zapisany w sekundach, bez menu. Kafelki szybkiego logowania Lumii umieszczają każdą kategorię jeden dotyk od ekranu głównego.',
+      body: 'Zastrzyki, badania, nastrój, wizyty — cały Twój cykl IVF zapisany w sekundach, bez menu. Kafelki szybkiego logowania Lumii umieszczają każdą kategorię jeden dotyk od ekranu głównego.',
       bullets: [
         'Jeden dotyk, by zapisać — bez menu, bez zagnieżdżonych formularzy',
         'Kategorie oznaczone kolorami — nigdy nie wybierzesz złej',
@@ -29,7 +29,7 @@ export const pl: typeof en = {
     {
       id: 'timeline',
       tag: 'Oś czasu',
-      headline: 'Cała Twoja podróż, na jednej osi czasu.',
+      headline: 'Cała Twoja podróż IVF, na jednej osi czasu.',
       body: 'Zobacz dokładnie, gdzie jesteś w swoim cyklu — i co czeka Cię dalej. Następny zastrzyk, następna wizyta, następne badanie, wszystko w jednym widoku chronologicznym.',
       bullets: [
         'Karta „Następne" pokazuje Twój następny zastrzyk lub wizytę',
@@ -41,7 +41,7 @@ export const pl: typeof en = {
       id: 'medications',
       tag: 'Leki',
       headline: 'Każda dawka, na czas.',
-      body: 'Śledź zastrzyki, leki doustne i czopki dzięki przypomnieniom opartym na czasie. Twój pełny protokół, na pierwszy rzut oka — nic nie zostaje pominięte.',
+      body: 'Śledź zastrzyki, leki doustne i czopki dzięki przypomnieniom opartym na czasie. Twój pełny protokół IVF, na pierwszy rzut oka — nic nie zostaje pominięte.',
       bullets: [
         'Przypomnienia czasowe dla zastrzyków, leków doustnych i czopków',
         'Śledź drogę podania, dawkę i stronę (lewa/prawa) dla każdego leku',
@@ -85,7 +85,7 @@ export const pl: typeof en = {
       id: 'reports',
       tag: 'Raporty',
       headline: 'Raporty, które pokochają lekarze.',
-      body: 'Jedno dotknięcie generuje raport PDF z pełnym podsumowaniem cyklu — każdy zastrzyk, każde badanie, każdy odczyt E2 — przejrzyście rozłożony dla Twojej kliniki. Wejdź na każdą wizytę przygotowana.',
+      body: 'Jedno dotknięcie generuje raport PDF z pełnym podsumowaniem cyklu IVF — każdy zastrzyk, każde badanie, każdy odczyt E2 — przejrzyście rozłożony dla Twojej kliniki. Wejdź na każdą wizytę przygotowana.',
       bullets: [
         'Wykres progresji E2 + wykres wzrostu pęcherzyków (jajniki L/P)',
         'Faza cyklu, protokół i kluczowe kamienie milowe w jednym PDF',

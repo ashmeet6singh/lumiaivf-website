@@ -4,8 +4,8 @@ export const en = {
     langToggle: 'PL',
   },
   hero: {
-    headline: 'Your IVF companion, finally built for you.',
-    subheadline: 'Track every injection. Understand every scan number. Honor every emotion.',
+    headline: 'Track meds, scans & appointments — without stress.',
+    subheadline: 'Log a dose, scan, or mood in one tap. See your timeline. Share with your partner. Stay on track.',
     emailPlaceholder: 'Your email address',
     ctaButton: 'Notify me',
     thankyou: "You're on the list! We'll reach out when Lumia is ready. 🌸",
@@ -16,7 +16,7 @@ export const en = {
       id: 'quicklog',
       tag: 'Quick log',
       headline: 'Log anything in one tap.',
-      body: "Injections, scans, mood, appointments — your whole day captured in seconds, not menus. Lumia's quick-log tiles put every category one tap away from the home screen.",
+      body: "Injections, scans, mood, appointments — your whole IVF cycle captured in seconds, not menus. Lumia's quick-log tiles put every category one tap away from the home screen.",
       bullets: [
         'One tap to log — no menus, no nested forms',
         'Color-coded categories so you never tap the wrong one',
@@ -26,7 +26,7 @@ export const en = {
     {
       id: 'timeline',
       tag: 'Timeline',
-      headline: 'Your whole journey, on one timeline.',
+      headline: 'Your IVF journey, on one timeline.',
       body: "See exactly where you are in your cycle — and what's coming next. Your next injection, your next appointment, your next scan, all in one chronological view.",
       bullets: [
         '"Next up" card surfaces your next injection or appointment',
@@ -38,7 +38,7 @@ export const en = {
       id: 'medications',
       tag: 'Medications',
       headline: 'Every dose, on time.',
-      body: 'Track injections, oral meds, and suppositories with time-based reminders. Your full protocol, at a glance — so nothing gets missed.',
+      body: 'Track injections, oral meds, and suppositories with time-based reminders. Your full IVF protocol, at a glance — so nothing gets missed.',
       bullets: [
         'Time-based reminders for injections, oral meds, and suppositories',
         'Track route, dose, and side (left/right) per medication',
@@ -82,7 +82,7 @@ export const en = {
       id: 'reports',
       tag: 'Reports',
       headline: 'Reports your doctor will love.',
-      body: 'One tap generates a printable PDF report with your full cycle summary — every injection, every scan, every E2 reading — laid out cleanly for your clinic. Walk into every appointment prepared.',
+      body: 'One tap generates a printable PDF report with your full IVF cycle summary — every injection, every scan, every E2 reading — laid out cleanly for your clinic. Walk into every appointment prepared.',
       bullets: [
         'E2 progression chart + follicle growth chart (L/R ovaries)',
         'Cycle phase, protocol, and key milestones in one PDF',
