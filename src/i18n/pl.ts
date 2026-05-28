@@ -8,7 +8,7 @@ export const pl: typeof en = {
   },
   hero: {
     headline: 'Śledź leki, badania i wizyty — bez stresu.',
-    subheadline: 'Zapisuj leki, badania lub nastrój jednym dotknięciem. Zobacz swoją oś czasu. Dziel ją z partnerem. Trzymaj rękę na pulsie.',
+    subheadline: 'Zapisuj leki, badania lub nastrój jednym dotknięciem. Zobacz swoją oś czasu IVF. Dziel ją z partnerem. Trzymaj rękę na pulsie.',
     emailPlaceholder: 'Twój adres e-mail',
     ctaButton: 'Powiadom mnie',
     thankyou: 'Jesteś na liście! Damy znać, gdy Lumia będzie gotowa. 🌸',
@@ -52,10 +52,10 @@ export const pl: typeof en = {
       id: 'scans',
       tag: 'Śledzenie badań',
       headline: 'Twoje badania, nareszcie zrozumiałe.',
-      body: 'Zapisuj liczbę pęcherzyków, poziom E2 i grubość endometrium po każdej wizycie kontrolnej. Obserwuj odpowiedź swojego ciała w czasie rzeczywistym.',
+      body: 'Zapisuj liczbę pęcherzyków, poziom estradiolu i grubość endometrium po każdej wizycie kontrolnej. Obserwuj odpowiedź swojego ciała w czasie rzeczywistym.',
       bullets: [
         'Zapisuj liczbę pęcherzyków na jajnik (L/P) i grubość endometrium',
-        'Śledź poziom E2 po każdym badaniu krwi',
+        'Śledź poziom estradiolu po każdym badaniu krwi',
         'Obserwuj odpowiedź na stymulację dzień po dniu',
       ],
     },
@@ -85,9 +85,9 @@ export const pl: typeof en = {
       id: 'reports',
       tag: 'Raporty',
       headline: 'Raporty, które pokochają lekarze.',
-      body: 'Jedno dotknięcie generuje raport PDF z pełnym podsumowaniem cyklu IVF — każdy zastrzyk, każde badanie, każdy odczyt E2 — przejrzyście rozłożony dla Twojej kliniki. Wejdź na każdą wizytę przygotowana.',
+      body: 'Jedno dotknięcie generuje raport PDF z pełnym podsumowaniem cyklu IVF — każdy zastrzyk, każde badanie, każdy odczyt estradiolu — przejrzyście rozłożony dla Twojej kliniki. Wejdź na każdą wizytę przygotowana.',
       bullets: [
-        'Wykres progresji E2 + wykres wzrostu pęcherzyków (jajniki L/P)',
+        'Wykres progresji estradiolu + wykres wzrostu pęcherzyków (jajniki L/P)',
         'Faza cyklu, protokół i kluczowe kamienie milowe w jednym PDF',
         'Wydrukuj lub udostępnij lekarzowi w kilka sekund',
       ],

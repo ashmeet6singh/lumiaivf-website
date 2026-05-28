@@ -5,7 +5,7 @@ export const en = {
   },
   hero: {
     headline: 'Track meds, scans & appointments — without stress.',
-    subheadline: 'Log a dose, scan, or mood in one tap. See your timeline. Share with your partner. Stay on track.',
+    subheadline: 'Log a dose, scan, or mood in one tap. See your IVF timeline. Share with your partner. Stay on track.',
     emailPlaceholder: 'Your email address',
     ctaButton: 'Notify me',
     thankyou: "You're on the list! We'll reach out when Lumia is ready. 🌸",
@@ -49,10 +49,10 @@ export const en = {
       id: 'scans',
       tag: 'Scan tracking',
       headline: 'Your scans, finally making sense.',
-      body: "Log follicle counts, E2 levels, and lining thickness after each monitoring appointment. Watch your body's response unfold in real time.",
+      body: "Log follicle counts, estradiol levels, and lining thickness after each monitoring appointment. Watch your body's response unfold in real time.",
       bullets: [
         'Log follicle counts per ovary (L/R) and lining thickness',
-        'Track E2 levels after each blood test',
+        'Track estradiol levels after each blood test',
         'Watch your stim response unfold day by day',
       ],
     },
@@ -82,9 +82,9 @@ export const en = {
       id: 'reports',
       tag: 'Reports',
       headline: 'Reports your doctor will love.',
-      body: 'One tap generates a printable PDF report with your full IVF cycle summary — every injection, every scan, every E2 reading — laid out cleanly for your clinic. Walk into every appointment prepared.',
+      body: 'One tap generates a printable PDF report with your full IVF cycle summary — every injection, every scan, every estradiol reading — laid out cleanly for your clinic. Walk into every appointment prepared.',
       bullets: [
-        'E2 progression chart + follicle growth chart (L/R ovaries)',
+        'Estradiol progression chart + follicle growth chart (L/R ovaries)',
         'Cycle phase, protocol, and key milestones in one PDF',
         'Print or share with your doctor in seconds',
       ],
