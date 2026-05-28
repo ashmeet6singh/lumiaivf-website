@@ -9,7 +9,11 @@ function LumiaLogo() {
   )
 }
 
-export default function Nav() {
+interface NavProps {
+  onGoHome: () => void
+}
+
+export default function Nav({ onGoHome }: NavProps) {
   const { language, t, setLanguage } = useLanguage()
   const [scrolled, setScrolled] = useState(false)
 
@@ -29,12 +33,15 @@ export default function Nav() {
     >
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
-        <div className="flex items-center gap-2.5">
+        <button
+          onClick={onGoHome}
+          className="flex items-center gap-2.5 cursor-pointer text-left focus:outline-none"
+        >
           <LumiaLogo />
           <span className="font-display font-semibold text-xl text-on-surface tracking-tight">
             {t.nav.logo}
           </span>
-        </div>
+        </button>
 
         {/* Language toggle */}
         <div className="flex items-center bg-surface-container rounded-full p-1 gap-0.5">

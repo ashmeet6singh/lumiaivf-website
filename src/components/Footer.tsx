@@ -8,30 +8,71 @@ function LumiaLogo() {
   )
 }
 
-export default function Footer() {
+interface FooterProps {
+  onOpenModal: (modal: 'privacy' | 'disclaimer' | 'cookies') => void
+  onGoToPage: (page: 'home' | 'contact') => void
+}
+
+export default function Footer({ onOpenModal, onGoToPage }: FooterProps) {
   const { t } = useLanguage()
 
   return (
-    <footer className="bg-inverse-surface border-t border-white/5 py-10 px-6">
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center md:items-start justify-between gap-6 text-center md:text-left">
+    <footer className="bg-inverse-surface border-t border-white/5 py-12 px-6">
+      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center md:items-start justify-between gap-8">
 
         {/* Brand */}
-        <div className="flex flex-col items-center md:items-start gap-2">
-          <div className="flex items-center gap-2">
+        <div className="flex flex-col items-center md:items-start gap-3">
+          <button
+            onClick={() => onGoToPage('home')}
+            className="flex items-center gap-2 cursor-pointer focus:outline-none"
+          >
             <LumiaLogo />
             <span className="font-display font-semibold text-lg text-inverse-on-surface">
               {t.nav.logo}
             </span>
-          </div>
-          <p className="text-inverse-on-surface/50 text-sm max-w-xs">
+          </button>
+          <p className="text-inverse-on-surface/50 text-sm max-w-xs text-center md:text-left">
             {t.footer.tagline}
           </p>
         </div>
 
-        {/* Copyright */}
-        <p className="text-inverse-on-surface/40 text-sm self-end">
-          {t.footer.copyright}
-        </p>
+        {/* Links & Copyright Column */}
+        <div className="flex flex-col items-center md:items-end gap-4 text-center md:text-right">
+          
+          {/* Navigation Links */}
+          <nav className="flex flex-wrap items-center justify-center md:justify-end gap-x-6 gap-y-2 text-sm text-inverse-on-surface/60">
+            <button
+              onClick={() => onGoToPage('contact')}
+              className="hover:text-inverse-on-surface transition-colors cursor-pointer text-left"
+            >
+              {t.footer.links.contact}
+            </button>
+            <button
+              onClick={() => onOpenModal('privacy')}
+              className="hover:text-inverse-on-surface transition-colors cursor-pointer text-left"
+            >
+              {t.footer.links.privacy}
+            </button>
+            <button
+              onClick={() => onOpenModal('disclaimer')}
+              className="hover:text-inverse-on-surface transition-colors cursor-pointer text-left"
+            >
+              {t.footer.links.disclaimer}
+            </button>
+            <button
+              onClick={() => onOpenModal('cookies')}
+              className="hover:text-inverse-on-surface transition-colors cursor-pointer text-left"
+            >
+              {t.footer.links.cookies}
+            </button>
+          </nav>
+
+          {/* Copyright */}
+          <p className="text-inverse-on-surface/30 text-xs">
+            {t.footer.copyright}
+          </p>
+
+        </div>
 
       </div>
     </footer>
