@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm create *)",
+      "Bash(npx create-vite@latest . --template react-ts)",
+      "Bash(npm install *)",
+      "Bash(npm --version)",
+      "Bash(npx tailwindcss *)",
+      "Bash(mkdir -p \"/Users/ashmeetsingh/Projects/Bloom Website/src/i18n\" \"/Users/ashmeetsingh/Projects/Bloom Website/src/contexts\" \"/Users/ashmeetsingh/Projects/Bloom Website/src/hooks\" \"/Users/ashmeetsingh/Projects/Bloom Website/src/components\" \"/Users/ashmeetsingh/Projects/Bloom Website/public\")",
+      "Bash(cp \"/Users/ashmeetsingh/Projects/Bloom Website/brand/favicon.svg\" \"/Users/ashmeetsingh/Projects/Bloom Website/public/favicon.svg\")",
+      "Bash(npx tsc *)",
+      "Bash(npm run *)",
+      "Bash(curl -s http://localhost:5173)",
+      "Bash(curl -s http://localhost:5175)",
+      "Bash(npm list *)",
+      "Read(//Users/ashmeetsingh/.npm-global/lib/**)",
+      "Bash(npx playwright *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:5175/)"
+    ]
+  }
+}
