@@ -64,16 +64,18 @@ export default function Nav({ onGoHome, onGoContact, onGoArticles }: NavProps) {
 
         {/* Right side: Articles + Contact + Language */}
         <div className="flex items-center gap-3">
-          <button
-            onClick={onGoArticles}
-            className={`hidden sm:flex items-center px-4 py-1.5 text-sm font-medium rounded-full transition-all duration-200 ${
-              atTop
-                ? 'text-white/80 hover:text-white'
-                : 'text-on-surface-variant hover:text-on-surface'
-            }`}
-          >
-            {t.nav.articles}
-          </button>
+          {language !== 'pl' && (
+            <button
+              onClick={onGoArticles}
+              className={`hidden sm:flex items-center px-4 py-1.5 text-sm font-medium rounded-full transition-all duration-200 ${
+                atTop
+                  ? 'text-white/80 hover:text-white'
+                  : 'text-on-surface-variant hover:text-on-surface'
+              }`}
+            >
+              {t.nav.articles}
+            </button>
+          )}
           <button
             onClick={onGoContact}
             className={`hidden sm:flex items-center px-4 py-1.5 text-sm font-semibold rounded-full border transition-all duration-200 ${

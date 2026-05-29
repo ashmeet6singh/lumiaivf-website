@@ -25,7 +25,7 @@ interface FooterProps {
 }
 
 export default function Footer({ onOpenModal, onGoToPage }: FooterProps) {
-  const { t } = useLanguage()
+  const { language, t } = useLanguage()
 
   return (
     <footer className="bg-inverse-surface border-t border-white/5 py-12 px-6">
@@ -58,12 +58,14 @@ export default function Footer({ onOpenModal, onGoToPage }: FooterProps) {
             >
               {t.footer.links.contact}
             </button>
-            <button
-              onClick={() => onGoToPage('articles')}
-              className="hover:text-inverse-on-surface transition-colors cursor-pointer text-left"
-            >
-              {t.footer.links.articles}
-            </button>
+            {language !== 'pl' && (
+              <button
+                onClick={() => onGoToPage('articles')}
+                className="hover:text-inverse-on-surface transition-colors cursor-pointer text-left"
+              >
+                {t.footer.links.articles}
+              </button>
+            )}
             <button
               onClick={() => onOpenModal('privacy')}
               className="hover:text-inverse-on-surface transition-colors cursor-pointer text-left"
