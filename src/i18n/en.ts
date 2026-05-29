@@ -2,14 +2,16 @@ export const en = {
   nav: {
     logo: 'Lumia',
     langToggle: 'PL',
+    contact: 'Contact',
+    articles: 'Articles',
   },
   hero: {
     headline: 'Track meds, scans & appointments — without stress.',
-    subheadline: 'Log a dose, scan, or mood in one tap. See your IVF timeline. Share with your partner. Stay on track.',
+    subheadline: 'Lumia is the IVF app that logs a dose, scan, or mood in one tap. See your full IVF timeline. Share with your partner. Stay on track.',
     emailPlaceholder: 'Your email address',
     ctaButton: 'Notify me',
     thankyou: "You're on the list! We'll reach out when Lumia is ready. 🌸",
-    socialProof: 'Join hundreds of women waiting for a better IVF companion.',
+    socialProof: 'Join hundreds of women waiting for the best app to track IVF — finally built around the whole journey.',
   },
   features: [
     {
@@ -27,7 +29,7 @@ export const en = {
       id: 'timeline',
       tag: 'Timeline',
       headline: 'Your IVF journey, on one timeline.',
-      body: "See exactly where you are in your cycle — and what's coming next. Your next injection, your next appointment, your next scan, all in one chronological view.",
+      body: "See exactly where you are in your cycle — and what's coming next. This IVF pregnancy tracker app shows your next injection, appointment, and scan in one clear chronological view.",
       bullets: [
         '"Next up" card surfaces your next injection or appointment',
         'Filter by today, this week, full cycle, or all-time',
@@ -82,7 +84,7 @@ export const en = {
       id: 'reports',
       tag: 'Reports',
       headline: 'Reports your doctor will love.',
-      body: 'One tap generates a printable PDF report with your full IVF cycle summary — every injection, every scan, every estradiol reading — laid out cleanly for your clinic. Walk into every appointment prepared.',
+      body: 'One tap generates a printable PDF report with your full IVF cycle summary — every injection, every scan, every estradiol reading — laid out cleanly for your clinic. The best IVF app experience means walking into every appointment fully prepared.',
       bullets: [
         'Estradiol progression chart + follicle growth chart (L/R ovaries)',
         'Cycle phase, protocol, and key milestones in one PDF',
@@ -92,7 +94,7 @@ export const en = {
   ],
   cta: {
     headline: 'Be the first to know when Lumia is ready.',
-    subheadline: 'Join hundreds of women waiting for a better IVF companion.',
+    subheadline: 'Join hundreds of women waiting for a warm IVF pregnancy app that actually understands the journey.',
     emailPlaceholder: 'Your email address',
     ctaButton: 'Notify me',
     thankyou: "You're on the list! We'll reach out when Lumia is ready. 🌸",
@@ -102,6 +104,7 @@ export const en = {
     copyright: '© 2026 Lumia. All rights reserved.',
     links: {
       contact: 'Contact',
+      articles: 'Articles',
       privacy: 'Privacy Policy',
       disclaimer: 'Medical Disclaimer',
       cookies: 'Cookie Settings',

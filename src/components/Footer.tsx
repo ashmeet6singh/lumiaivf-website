@@ -2,15 +2,26 @@ import { useLanguage } from '../contexts/LanguageContext'
 
 function LumiaLogo() {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="23" fill="none" viewBox="0 0 48 46" aria-hidden="true">
-      <path fill="#D0BCFF" d="M25.946 44.938c-.664.845-2.021.375-2.021-.698V33.937a2.26 2.26 0 0 0-2.262-2.262H10.287c-.92 0-1.456-1.04-.92-1.788l7.48-10.471c1.07-1.497 0-3.578-1.842-3.578H1.237c-.92 0-1.456-1.04-.92-1.788L10.013.474c.214-.297.556-.474.92-.474h28.894c.92 0 1.456 1.04.92 1.788l-7.48 10.471c-1.07 1.498 0 3.579 1.842 3.579h11.377c.943 0 1.473 1.088.89 1.83L25.947 44.94z"/>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 64 64" aria-hidden="true">
+      <defs>
+        <radialGradient id="lmOrbFooter" cx="42%" cy="34%" r="80%">
+          <stop offset="0%" stop-color="#FFD9A8"></stop>
+          <stop offset="40%" stop-color="#E78FA6"></stop>
+          <stop offset="74%" stop-color="#B1577C"></stop>
+          <stop offset="100%" stop-color="#943E63"></stop>
+        </radialGradient>
+      </defs>
+      <g transform="translate(0 2)">
+        <path d="M10 32.5 C 19 49 43 49 52 32.5" stroke="#E78FA6" stroke-width="5" stroke-linecap="round" opacity="0.92"></path>
+        <circle cx="31" cy="31" r="11.5" fill="url(#lmOrbFooter)"></circle>
+      </g>
     </svg>
   )
 }
 
 interface FooterProps {
   onOpenModal: (modal: 'privacy' | 'disclaimer' | 'cookies') => void
-  onGoToPage: (page: 'home' | 'contact') => void
+  onGoToPage: (page: 'home' | 'contact' | 'articles') => void
 }
 
 export default function Footer({ onOpenModal, onGoToPage }: FooterProps) {
@@ -24,14 +35,14 @@ export default function Footer({ onOpenModal, onGoToPage }: FooterProps) {
         <div className="flex flex-col items-center md:items-start gap-3">
           <button
             onClick={() => onGoToPage('home')}
-            className="flex items-center gap-2 cursor-pointer focus:outline-none"
+            className="flex items-center gap-2 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 rounded-md"
           >
             <LumiaLogo />
             <span className="font-display font-semibold text-lg text-inverse-on-surface">
               {t.nav.logo}
             </span>
           </button>
-          <p className="text-inverse-on-surface/50 text-sm max-w-xs text-center md:text-left">
+          <p className="text-inverse-on-surface/65 text-sm max-w-xs text-center md:text-left">
             {t.footer.tagline}
           </p>
         </div>
@@ -46,6 +57,12 @@ export default function Footer({ onOpenModal, onGoToPage }: FooterProps) {
               className="hover:text-inverse-on-surface transition-colors cursor-pointer text-left"
             >
               {t.footer.links.contact}
+            </button>
+            <button
+              onClick={() => onGoToPage('articles')}
+              className="hover:text-inverse-on-surface transition-colors cursor-pointer text-left"
+            >
+              {t.footer.links.articles}
             </button>
             <button
               onClick={() => onOpenModal('privacy')}
@@ -68,7 +85,7 @@ export default function Footer({ onOpenModal, onGoToPage }: FooterProps) {
           </nav>
 
           {/* Copyright */}
-          <p className="text-inverse-on-surface/30 text-xs">
+          <p className="text-inverse-on-surface/50 text-xs">
             {t.footer.copyright}
           </p>
 

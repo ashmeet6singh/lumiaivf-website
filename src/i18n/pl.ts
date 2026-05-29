@@ -5,14 +5,16 @@ export const pl: typeof en = {
   nav: {
     logo: 'Lumia',
     langToggle: 'EN',
+    contact: 'Kontakt',
+    articles: 'Artykuły',
   },
   hero: {
     headline: 'Śledź leki, badania i wizyty — bez stresu.',
-    subheadline: 'Zapisuj leki, badania lub nastrój jednym dotknięciem. Zobacz swoją oś czasu IVF. Dziel ją z partnerem. Trzymaj rękę na pulsie.',
+    subheadline: 'Lumia to aplikacja IVF, która zapisuje leki, badania lub nastrój jednym dotknięciem. Zobacz swoją pełną oś czasu IVF. Dziel ją z partnerem. Trzymaj rękę na pulsie.',
     emailPlaceholder: 'Twój adres e-mail',
     ctaButton: 'Powiadom mnie',
     thankyou: 'Jesteś na liście! Damy znać, gdy Lumia będzie gotowa. 🌸',
-    socialProof: 'Dołącz do setek kobiet czekających na lepszego towarzysza IVF.',
+    socialProof: 'Dołącz do setek kobiet czekających na najlepszą aplikację do śledzenia IVF — stworzoną dla całej podróży.',
   },
   features: [
     {
@@ -30,7 +32,7 @@ export const pl: typeof en = {
       id: 'timeline',
       tag: 'Oś czasu',
       headline: 'Cała Twoja podróż IVF, na jednej osi czasu.',
-      body: 'Zobacz dokładnie, gdzie jesteś w swoim cyklu — i co czeka Cię dalej. Następny zastrzyk, następna wizyta, następne badanie, wszystko w jednym widoku chronologicznym.',
+      body: 'Zobacz dokładnie, gdzie jesteś w swoim cyklu — i co czeka Cię dalej. Ta aplikacja do śledzenia ciąży IVF pokazuje następny zastrzyk, wizytę i badanie w jednym przejrzystym widoku chronologicznym.',
       bullets: [
         'Karta „Następne" pokazuje Twój następny zastrzyk lub wizytę',
         'Filtruj według dziś, tego tygodnia, pełnego cyklu lub całej historii',
@@ -85,7 +87,7 @@ export const pl: typeof en = {
       id: 'reports',
       tag: 'Raporty',
       headline: 'Raporty, które pokochają lekarze.',
-      body: 'Jedno dotknięcie generuje raport PDF z pełnym podsumowaniem cyklu IVF — każdy zastrzyk, każde badanie, każdy odczyt estradiolu — przejrzyście rozłożony dla Twojej kliniki. Wejdź na każdą wizytę przygotowana.',
+      body: 'Jedno dotknięcie generuje raport PDF z pełnym podsumowaniem cyklu IVF — każdy zastrzyk, każde badanie, każdy odczyt estradiolu — przejrzyście rozłożony dla Twojej kliniki. Najlepsza aplikacja IVF to taka, która sprawia, że wchodzisz na każdą wizytę w pełni przygotowana.',
       bullets: [
         'Wykres progresji estradiolu + wykres wzrostu pęcherzyków (jajniki L/P)',
         'Faza cyklu, protokół i kluczowe kamienie milowe w jednym PDF',
@@ -95,7 +97,7 @@ export const pl: typeof en = {
   ],
   cta: {
     headline: 'Bądź pierwsza, gdy Lumia będzie gotowa.',
-    subheadline: 'Dołącz do setek kobiet czekających na lepszego towarzysza IVF.',
+    subheadline: 'Dołącz do setek kobiet czekających na ciepłą aplikację ciążową IVF, która naprawdę rozumie tę podróż.',
     emailPlaceholder: 'Twój adres e-mail',
     ctaButton: 'Powiadom mnie',
     thankyou: 'Jesteś na liście! Damy znać, gdy Lumia będzie gotowa. 🌸',
@@ -105,6 +107,7 @@ export const pl: typeof en = {
     copyright: '© 2026 Lumia. Wszelkie prawa zastrzeżone.',
     links: {
       contact: 'Kontakt',
+      articles: 'Artykuły',
       privacy: 'Polityka Prywatności',
       disclaimer: 'Zastrzeżenie Medyczne',
       cookies: 'Ustawienia Plików Cookie',

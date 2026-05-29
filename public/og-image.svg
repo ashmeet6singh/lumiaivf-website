@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <!-- Hero gradient: mauve → warm terracotta -->
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7B5EA7"/>
+      <stop offset="100%" stop-color="#994529"/>
+    </linearGradient>
+    <!-- Subtle radial glow for depth -->
+    <radialGradient id="glow" cx="30%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <!-- Logo orb gradient -->
+    <radialGradient id="orb" cx="42%" cy="34%" r="80%">
+      <stop offset="0%" stop-color="#FFD9A8"/>
+      <stop offset="40%" stop-color="#E78FA6"/>
+      <stop offset="74%" stop-color="#B1577C"/>
+      <stop offset="100%" stop-color="#943E63"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+
+  <!-- Decorative circle shapes (soft, brand-consistent) -->
+  <circle cx="980" cy="120" r="280" fill="#ffffff" fill-opacity="0.04"/>
+  <circle cx="1050" cy="500" r="180" fill="#ffffff" fill-opacity="0.03"/>
+  <circle cx="100" cy="520" r="200" fill="#ffffff" fill-opacity="0.03"/>
+
+  <!-- Logo mark (bloom icon) -->
+  <g transform="translate(96, 96)">
+    <path d="M10 32.5 C 19 49 43 49 52 32.5" stroke="#E78FA6" stroke-width="5" stroke-linecap="round" opacity="0.92"/>
+    <circle cx="31" cy="31" r="18" fill="url(#orb)"/>
+  </g>
+
+  <!-- Wordmark -->
+  <text x="156" y="138" font-family="Georgia, 'Times New Roman', serif" font-size="40" font-weight="700" fill="#ffffff" letter-spacing="-0.5" opacity="0.95">Lumia</text>
+
+  <!-- Main headline -->
+  <text x="96" y="280" font-family="Georgia, 'Times New Roman', serif" font-size="68" font-weight="700" fill="#ffffff" letter-spacing="-1.5" opacity="0.97">Your IVF companion,</text>
+  <text x="96" y="360" font-family="Georgia, 'Times New Roman', serif" font-size="68" font-weight="700" fill="#ffffff" letter-spacing="-1.5" opacity="0.97">finally built for you.</text>
+
+  <!-- Subheadline -->
+  <text x="96" y="436" font-family="'Helvetica Neue', Arial, sans-serif" font-size="28" font-weight="400" fill="#ffffff" fill-opacity="0.78">Track medications, scans &amp; emotions — in one warm, compassionate app.</text>
+
+  <!-- Divider pill -->
+  <rect x="96" y="490" width="60" height="4" rx="2" fill="#E8D5C4" opacity="0.8"/>
+
+  <!-- Footer tagline -->
+  <text x="96" y="558" font-family="'Helvetica Neue', Arial, sans-serif" font-size="22" font-weight="400" fill="#ffffff" fill-opacity="0.55">lumia-app.com</text>
+
+  <!-- CTA badge -->
+  <rect x="852" y="510" width="252" height="56" rx="28" fill="#ffffff" fill-opacity="0.15"/>
+  <rect x="852" y="510" width="252" height="56" rx="28" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-opacity="0.35"/>
+  <text x="978" y="545" font-family="'Helvetica Neue', Arial, sans-serif" font-size="19" font-weight="600" fill="#ffffff" text-anchor="middle" letter-spacing="0.3">Join the waitlist 🌸</text>
+</svg>
