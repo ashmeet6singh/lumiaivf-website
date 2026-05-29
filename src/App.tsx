@@ -14,10 +14,19 @@ import ArticlePage from './components/ArticlePage'
 import RouteHead from './components/RouteHead'
 
 function ScrollToTop() {
-  const { pathname } = useLocation()
+  const { pathname, hash } = useLocation()
   useEffect(() => {
+    if (hash) {
+      // Defer a tick so the target (e.g. the hero #waitlist form) is mounted
+      // after a cross-route navigation before we scroll to it.
+      const id = hash.slice(1)
+      const t = setTimeout(() => {
+        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+      }, 0)
+      return () => clearTimeout(t)
+    }
     window.scrollTo(0, 0)
-  }, [pathname])
+  }, [pathname, hash])
   return null
 }
 

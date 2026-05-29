@@ -14,7 +14,8 @@ export default function Hero() {
 
   return (
     <section
-      className="relative min-h-screen flex items-center overflow-hidden"
+      id="waitlist"
+      className="relative min-h-screen flex items-center overflow-hidden scroll-mt-20"
       style={{ background: 'linear-gradient(160deg, #7B5EA7 0%, #994529 100%)' }}
     >
       {/* Subtle noise texture overlay */}

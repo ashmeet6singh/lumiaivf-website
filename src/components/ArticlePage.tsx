@@ -106,7 +106,7 @@ export default function ArticlePage() {
               Medications, scan results, appointments, and mood — all in one warm, private place. Join the waitlist for early access.
             </p>
             <Link
-              to="/contact"
+              to="/#waitlist"
               className="inline-flex items-center mt-4 px-6 py-2.5 rounded-full bg-primary text-white text-sm font-semibold hover:bg-primary/90 transition-colors duration-150"
             >
               Join the waitlist

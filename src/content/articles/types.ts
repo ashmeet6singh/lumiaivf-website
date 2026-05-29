@@ -1,8 +1,16 @@
+/**
+ * Inline text can be a plain string or a sequence of tokens, where a token is
+ * either a plain string or a link. Links with an http(s) href open in a new tab;
+ * links with an internal href (starting with "/") navigate in the same tab.
+ */
+export type InlineToken = string | { text: string; href: string }
+export type RichText = string | InlineToken[]
+
 export type Block =
-  | { type: 'p'; text: string }
+  | { type: 'p'; text: RichText }
   | { type: 'h2'; text: string; id?: string }
   | { type: 'h3'; text: string; id?: string }
-  | { type: 'list'; ordered?: boolean; items: string[] }
+  | { type: 'list'; ordered?: boolean; items: RichText[] }
   | { type: 'callout'; variant: 'info' | 'warning'; text: string }
   | { type: 'quote'; text: string; cite?: string }
 

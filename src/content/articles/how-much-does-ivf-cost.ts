@@ -21,6 +21,14 @@ export const howMuchDoesIvfCost: Article = {
       text: 'This article won\'t give you a single number — no one honestly can — but it will help you understand what costs are typically involved, what questions to ask, and how to plan financially for a process that often requires more than one attempt.',
     },
     {
+      type: 'p',
+      text: [
+        'A note on geography: this guide focuses on the UK and Europe, where some treatment may be funded through the NHS. If you\'re in the United States, where pricing and insurance work very differently, read our companion guide on ',
+        { text: 'how much IVF costs in the US', href: '/articles/how-much-does-ivf-cost-us' },
+        '.',
+      ],
+    },
+    {
       type: 'h2',
       text: 'The "Base Price" and What It Usually Includes',
       id: 'base-price',
@@ -33,6 +41,20 @@ export const howMuchDoesIvfCost: Article = {
       type: 'callout',
       variant: 'info',
       text: 'In some countries — including the UK, parts of Europe, and some Australian states — NHS or publicly funded IVF may be available depending on your age, diagnosis, and circumstances. Always ask your GP or fertility clinic whether you might qualify for funded treatment before committing to a private cycle.',
+    },
+    {
+      type: 'p',
+      text: [
+        'In the UK, eligibility for NHS-funded treatment follows ',
+        { text: 'NICE guidance (CG156)', href: 'https://www.nice.org.uk/guidance/cg156' },
+        ', which recommends up to three cycles for eligible women under 40 — though the final decision rests with your local Integrated Care Board, so provision varies by region. The Government\'s overview of ',
+        { text: 'NHS-funded IVF in England', href: 'https://www.gov.uk/government/publications/nhs-funded-ivf-in-england/nhs-funded-in-vitro-fertilisation-ivf-in-england' },
+        ' explains the common criteria, and ',
+        { text: 'Fertility Network UK', href: 'https://fertilitynetworkuk.org/access-support/nhs-funding/england/' },
+        ' tracks what funding looks like area by area. For private pricing, the regulator ',
+        { text: 'HFEA publishes a costs-and-funding guide', href: 'https://www.hfea.gov.uk/treatments/explore-all-treatments/costs-and-funding/' },
+        ' to help you compare clinics on a like-for-like basis.',
+      ],
     },
     {
       type: 'h2',
@@ -146,11 +168,11 @@ export const howMuchDoesIvfCost: Article = {
   faq: [
     {
       question: 'How much does one IVF cycle cost in the UK?',
-      answer: 'At private clinics in the UK, a single IVF cycle typically costs between £3,000 and £6,000, not including medications. Medications can add £500–£2,000 or more. Some NHS-funded cycles are available depending on your clinical criteria and local NHS trust — ask your GP whether you may be eligible.',
+      answer: 'At private clinics in the UK, a single IVF cycle typically costs between £3,000 and £6,000, not including medications. Medications can add £500–£2,000 or more. Some NHS-funded cycles are available depending on your clinical criteria and local Integrated Care Board (NICE guidance recommends up to three cycles for eligible women under 40) — ask your GP whether you may be eligible.',
     },
     {
       question: 'How much does IVF cost in the US?',
-      answer: 'In the United States, IVF costs vary significantly by location and clinic. A single cycle typically ranges from $12,000 to $20,000, not including medications. Medications can add $3,000–$6,000 or more. Some states mandate insurance coverage for fertility treatment — check what applies in your state.',
+      answer: 'IVF in the United States works very differently — pricing is higher and insurance coverage depends heavily on your state and employer. We cover it in detail in a dedicated guide: How Much Does IVF Cost in the US? As a rough figure, a single all-in cycle commonly runs $15,000–$25,000 including medications.',
     },
     {
       question: 'Is IVF cheaper in other countries?',

@@ -1,8 +1,31 @@
 import { Check, Info, AlertTriangle } from 'lucide-react'
-import type { Block } from '../content/articles/types'
+import { Link } from 'react-router-dom'
+import type { Block, RichText } from '../content/articles/types'
 
 interface ArticleRendererProps {
   blocks: Block[]
+}
+
+const LINK_CLASS = 'text-primary underline underline-offset-2 hover:text-primary/80 transition-colors'
+
+function renderInline(text: RichText) {
+  if (typeof text === 'string') return text
+  return text.map((token, i) => {
+    if (typeof token === 'string') return token
+    // Internal links (starting with "/") use React Router; external open in a new tab.
+    if (token.href.startsWith('/')) {
+      return (
+        <Link key={i} to={token.href} className={LINK_CLASS}>
+          {token.text}
+        </Link>
+      )
+    }
+    return (
+      <a key={i} href={token.href} target="_blank" rel="noopener noreferrer" className={LINK_CLASS}>
+        {token.text}
+      </a>
+    )
+  })
 }
 
 export default function ArticleRenderer({ blocks }: ArticleRendererProps) {
@@ -37,7 +60,7 @@ export default function ArticleRenderer({ blocks }: ArticleRendererProps) {
           case 'p':
             return (
               <p key={i} className="text-on-surface-variant text-base leading-relaxed">
-                {block.text}
+                {renderInline(block.text)}
               </p>
             )
 
@@ -49,7 +72,7 @@ export default function ArticleRenderer({ blocks }: ArticleRendererProps) {
                     <span className="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full bg-primary-container flex items-center justify-center text-primary text-xs font-bold">
                       {j + 1}
                     </span>
-                    <span className="text-base leading-relaxed">{item}</span>
+                    <span className="text-base leading-relaxed">{renderInline(item)}</span>
                   </li>
                 ))}
               </ol>
@@ -60,7 +83,7 @@ export default function ArticleRenderer({ blocks }: ArticleRendererProps) {
                     <span className="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full bg-primary-container flex items-center justify-center">
                       <Check size={11} className="text-primary" strokeWidth={3} />
                     </span>
-                    <span className="text-base leading-relaxed">{item}</span>
+                    <span className="text-base leading-relaxed">{renderInline(item)}</span>
                   </li>
                 ))}
               </ul>

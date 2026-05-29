@@ -5,6 +5,7 @@ const ARTICLE_ICONS: Record<string, string> = {
   'iui-vs-ivf': '🔬',
   'ivf-success-rates': '📊',
   'how-much-does-ivf-cost': '💰',
+  'how-much-does-ivf-cost-us': '🇺🇸',
   'best-ivf-tracking-app': '📱',
   'ivf-timeline-what-to-expect': '🗓️',
 }
@@ -12,7 +13,8 @@ const ARTICLE_ICONS: Record<string, string> = {
 const ARTICLE_DESCRIPTIONS: Record<string, string> = {
   'iui-vs-ivf': 'A plain-language guide to how IUI and IVF differ, and how to have the right conversation with your doctor.',
   'ivf-success-rates': 'How to read IVF success statistics honestly — and what actually matters for your situation.',
-  'how-much-does-ivf-cost': 'What\'s typically included in an IVF cycle price, what isn\'t, and what to ask your clinic.',
+  'how-much-does-ivf-cost': 'What an IVF cycle costs in the UK and Europe, what NHS funding covers, and what to ask your clinic.',
+  'how-much-does-ivf-cost-us': 'IVF pricing in the US — clinic fees, medications, add-ons, and which states mandate insurance coverage.',
   'best-ivf-tracking-app': 'What a genuinely useful IVF pregnancy tracker app should do — and why most period trackers fall short.',
   'ivf-timeline-what-to-expect': 'A phase-by-phase walkthrough of the IVF journey, from first scans to the two-week wait.',
 }
@@ -86,7 +88,7 @@ export default function ArticlesIndex() {
               Lumia is an IVF app designed to track your medications, scan results, and emotions in one warm, private place. Join the waitlist.
             </p>
             <Link
-              to="/contact"
+              to="/#waitlist"
               className="inline-flex items-center mt-4 px-6 py-2.5 rounded-full bg-primary text-white text-sm font-semibold hover:bg-primary/90 transition-colors duration-150"
             >
               Join the waitlist
