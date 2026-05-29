@@ -4,7 +4,7 @@ import { articles } from '../content/articles/index'
 const ARTICLE_ICONS: Record<string, string> = {
   'iui-vs-ivf': '🔬',
   'ivf-success-rates': '📊',
-  'how-much-does-ivf-cost': '💰',
+  'how-much-does-ivf-cost': '🇬🇧',
   'how-much-does-ivf-cost-us': '🇺🇸',
   'best-ivf-tracking-app': '📱',
   'ivf-timeline-what-to-expect': '🗓️',

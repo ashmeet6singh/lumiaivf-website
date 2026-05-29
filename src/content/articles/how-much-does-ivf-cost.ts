@@ -2,7 +2,7 @@ import type { Article } from './types'
 
 export const howMuchDoesIvfCost: Article = {
   slug: 'how-much-does-ivf-cost',
-  title: 'How Much Does IVF Cost? A Plain-Language Breakdown',
+  title: 'How Much Does IVF Cost in the UK? A Plain-Language Breakdown',
   metaDescription: 'Wondering how much it costs to do in vitro fertilisation? This guide breaks down what\'s typically included in an IVF cycle, what isn\'t, and what questions to ask your clinic before signing anything.',
   keywordTarget: ['how much does it cost to do in vitro'],
   hero: {
