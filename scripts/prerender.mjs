@@ -21,7 +21,7 @@
 import { build } from 'vite'
 import fs from 'fs'
 import path from 'path'
-import { fileURLToPath } from 'url'
+import { fileURLToPath, pathToFileURL } from 'url'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const ROOT = path.join(__dirname, '..')
@@ -227,7 +227,8 @@ async function main() {
     console.error('ERROR: SSR bundle not found at', ssrBundlePath)
     process.exit(1)
   }
-  const { render, articles } = await import(ssrBundlePath)
+  const ssrBundleUrl = pathToFileURL(ssrBundlePath).href
+  const { render, articles } = await import(ssrBundleUrl)
 
   // 4. Build route table
   const routes = buildRouteTable(articles)
