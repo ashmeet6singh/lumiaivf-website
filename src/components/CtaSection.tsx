@@ -18,12 +18,12 @@ export default function CtaSection() {
       >
         <h2
           className="font-display font-bold text-inverse-on-surface leading-tight"
-          style={{ fontSize: 'clamp(1.6rem, 3.5vw, 2.2rem)', lineHeight: '1.2' }}
+          style={{ fontSize: 'clamp(1.8rem, 4vw, 2.6rem)', lineHeight: '1.15', textWrap: 'balance' } as React.CSSProperties}
         >
           {t.cta.headline}
         </h2>
 
-        <p className="text-inverse-on-surface/70 text-lg">
+        <p className="text-inverse-on-surface/85 text-lg">
           {t.cta.subheadline}
         </p>
 

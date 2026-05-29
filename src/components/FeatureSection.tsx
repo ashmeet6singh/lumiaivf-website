@@ -47,19 +47,19 @@ export default function FeatureSection({ feature, reverse, featureIndex }: Featu
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0 }}
             className="flex flex-col gap-5 mt-10 md:mt-0"
           >
-            {/* Tag chip */}
-            <span className="inline-flex self-start items-center bg-primary-container text-on-primary-container text-xs font-semibold tracking-wider uppercase rounded-full px-4 py-1.5">
+            {/* Feature label — small, warm, not shouting */}
+            <span className="inline-flex self-start items-center text-primary text-sm font-semibold">
               {feature.tag}
             </span>
 
             <h2
               className="font-display font-bold text-on-surface leading-tight"
-              style={{ fontSize: 'clamp(1.6rem, 3.5vw, 2.2rem)', lineHeight: '1.2' }}
+              style={{ fontSize: 'clamp(1.6rem, 3.5vw, 2.2rem)', lineHeight: '1.2', textWrap: 'balance' } as React.CSSProperties}
             >
               {feature.headline}
             </h2>
 
-            <p className="text-on-surface-variant text-lg leading-relaxed max-w-md">
+            <p className="text-on-surface-variant text-lg leading-relaxed" style={{ maxWidth: '52ch' }}>
               {feature.body}
             </p>
 

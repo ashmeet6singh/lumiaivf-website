@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { useLanguage } from '../contexts/LanguageContext'
 import EmailForm from './EmailForm'
-import PhoneMockup from './PhoneMockup'
+import HeroCluster from './HeroCluster'
 
 const fadeUp = (delay: number) => ({
   initial: { opacity: 0, y: 24 },
@@ -31,7 +31,7 @@ export default function Hero() {
           {/* Text content */}
           <div className="flex flex-col gap-6 order-2 md:order-1 mt-10 md:mt-0">
             <motion.div {...fadeUp(0.1)} className="inline-flex">
-              <span className="text-xs font-semibold tracking-widest uppercase text-white/60 bg-white/10 rounded-full px-4 py-1.5">
+              <span className="text-sm font-medium text-white/70">
                 Coming soon
               </span>
             </motion.div>
@@ -39,14 +39,15 @@ export default function Hero() {
             <motion.h1
               {...fadeUp(0.2)}
               className="font-display font-bold text-white leading-tight"
-              style={{ fontSize: 'clamp(2rem, 5vw, 3rem)', lineHeight: '1.15' }}
+              style={{ fontSize: 'clamp(2.2rem, 5vw, 3.5rem)', lineHeight: '1.12', textWrap: 'balance' } as React.CSSProperties}
             >
               {t.hero.headline}
             </motion.h1>
 
             <motion.p
               {...fadeUp(0.3)}
-              className="text-white/85 text-lg leading-relaxed max-w-md"
+              className="text-white/90 text-lg leading-relaxed max-w-md"
+              style={{ textWrap: 'pretty' } as React.CSSProperties}
             >
               {t.hero.subheadline}
             </motion.p>
@@ -58,24 +59,14 @@ export default function Hero() {
                 buttonLabel={t.hero.ctaButton}
                 thankyouMessage={t.hero.thankyou}
               />
-              <p className="text-white/55 text-sm">{t.hero.socialProof}</p>
+              <p className="text-white/65 text-sm">{t.hero.socialProof}</p>
             </motion.div>
           </div>
 
-          {/* Phone mockup */}
-          <motion.div
-            className="order-1 md:order-2 flex justify-center"
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.4 }}
-          >
-            <motion.div
-              animate={{ y: [-10, 10, -10] }}
-              transition={{ duration: 4.5, ease: 'easeInOut', repeat: Infinity }}
-            >
-              <PhoneMockup featureIndex={0} />
-            </motion.div>
-          </motion.div>
+          {/* Layered product cluster */}
+          <div className="order-1 md:order-2 flex justify-center">
+            <HeroCluster />
+          </div>
 
         </div>
       </div>

@@ -24,31 +24,46 @@ export default function ContactPage({ onGoHome }: ContactPageProps) {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [error, setError] = useState('')
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     if (!name || !email || !message) return
 
     setIsSubmitting(true)
+    setError('')
 
-    // Simulate network submission
-    setTimeout(() => {
-      setIsSubmitting(false)
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, subject, message }),
+      })
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}))
+        throw new Error(data.error ?? 'Something went wrong. Please try again.')
+      }
       setIsSubmitted(true)
       setName('')
       setEmail('')
       setSubject('general')
       setMessage('')
-    }, 1500)
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : 'Something went wrong. Please try again.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
     <div className="min-h-screen bg-[#FAF6F1] pt-24 pb-16">
       {/* Page Header (Mauve & Lavender theme background) */}
       <section className="relative overflow-hidden bg-primary-container/40 border-b border-primary/5 py-12 px-6">
-        {/* Envelope background watermark */}
-        <div className="absolute right-[-10px] bottom-[-40px] text-[260px] leading-none opacity-[0.03] select-none pointer-events-none transform -rotate-12">
-          ✉️
-        </div>
+        {/* Soft radial bloom behind the title */}
+        <div
+          className="absolute right-0 top-0 w-96 h-full pointer-events-none"
+          style={{ background: 'radial-gradient(ellipse 60% 80% at 80% 50%, rgba(123,94,167,0.08), transparent)' }}
+        />
 
         <div className="max-w-6xl mx-auto relative flex flex-col gap-4">
           {/* Breadcrumb Trail */}
@@ -64,12 +79,6 @@ export default function ContactPage({ onGoHome }: ContactPageProps) {
           </nav>
 
           <div className="space-y-3">
-            <motion.span
-              {...fadeUp(0.05)}
-              className="text-xs font-semibold tracking-widest uppercase text-primary bg-primary/10 rounded-full px-4 py-1.5 inline-block"
-            >
-              {t.nav.logo}
-            </motion.span>
             <motion.h1
               {...fadeUp(0.1)}
               className="font-display font-bold text-[#1C1C19] leading-tight"
@@ -104,7 +113,7 @@ export default function ContactPage({ onGoHome }: ContactPageProps) {
                 <Mail className="w-6 h-6" />
               </div>
               <div className="min-w-0">
-                <span className="text-xs font-semibold tracking-wider uppercase text-primary/70">
+                <span className="text-sm font-semibold text-primary/80">
                   {t.contact.emailCardTitle}
                 </span>
                 <p className="text-base md:text-lg font-bold text-[#1C1C19] group-hover:text-primary transition-colors truncate mt-1">
@@ -188,7 +197,7 @@ export default function ContactPage({ onGoHome }: ContactPageProps) {
                 <form onSubmit={handleSubmit} className="space-y-5">
                   {/* Name field */}
                   <div className="space-y-1.5 text-left">
-                    <label className="text-xs font-bold text-[#1C1C19]/70 tracking-wide uppercase select-none">
+                    <label className="text-sm font-semibold text-[#1C1C19]/60 select-none">
                       {t.contact.formName}
                     </label>
                     <input
@@ -203,7 +212,7 @@ export default function ContactPage({ onGoHome }: ContactPageProps) {
 
                   {/* Email field */}
                   <div className="space-y-1.5 text-left">
-                    <label className="text-xs font-bold text-[#1C1C19]/70 tracking-wide uppercase select-none">
+                    <label className="text-sm font-semibold text-[#1C1C19]/60 select-none">
                       {t.contact.formEmail}
                     </label>
                     <input
@@ -218,7 +227,7 @@ export default function ContactPage({ onGoHome }: ContactPageProps) {
 
                   {/* Subject Dropdown */}
                   <div className="space-y-1.5 text-left">
-                    <label className="text-xs font-bold text-[#1C1C19]/70 tracking-wide uppercase select-none">
+                    <label className="text-sm font-semibold text-[#1C1C19]/60 select-none">
                       {t.contact.formSubject}
                     </label>
                     <div className="relative">
@@ -242,7 +251,7 @@ export default function ContactPage({ onGoHome }: ContactPageProps) {
 
                   {/* Message Field */}
                   <div className="space-y-1.5 text-left">
-                    <label className="text-xs font-bold text-[#1C1C19]/70 tracking-wide uppercase select-none">
+                    <label className="text-sm font-semibold text-[#1C1C19]/60 select-none">
                       {t.contact.formMessage}
                     </label>
                     <textarea
@@ -250,10 +259,14 @@ export default function ContactPage({ onGoHome }: ContactPageProps) {
                       rows={5}
                       value={message}
                       onChange={(e) => setMessage(e.target.value)}
-                      placeholder="..."
+                      placeholder="What's on your mind?"
                       className="w-full px-4 py-3 bg-[#FAF6F1] border border-[#DDD9D5] hover:border-[#88726C]/30 focus:border-primary focus:bg-white rounded-xl text-sm text-[#1C1C19] placeholder-[#1C1C19]/35 outline-none transition-all resize-y"
                     />
                   </div>
+
+                  {error && (
+                    <p className="text-sm text-red-500 font-medium">{error}</p>
+                  )}
 
                   {/* Submit Button */}
                   <button
