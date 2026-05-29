@@ -48,7 +48,7 @@
   <rect x="96" y="490" width="60" height="4" rx="2" fill="#E8D5C4" opacity="0.8"/>
 
   <!-- Footer tagline -->
-  <text x="96" y="558" font-family="'Helvetica Neue', Arial, sans-serif" font-size="22" font-weight="400" fill="#ffffff" fill-opacity="0.55">lumia-app.com</text>
+  <text x="96" y="558" font-family="'Helvetica Neue', Arial, sans-serif" font-size="22" font-weight="400" fill="#ffffff" fill-opacity="0.55">lumiaivf.com</text>
 
   <!-- CTA badge -->
   <rect x="852" y="510" width="252" height="56" rx="28" fill="#ffffff" fill-opacity="0.15"/>

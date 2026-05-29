@@ -28,7 +28,7 @@ const ROOT = path.join(__dirname, '..')
 const DIST = path.join(ROOT, 'dist')
 const SSR_OUT = path.join(ROOT, '.ssr-out')
 
-const SITE_URL = 'https://lumia-app.com'
+const SITE_URL = 'https://lumiaivf.com'
 
 // ── Helpers ──────────────────────────────────────────────────────────────────
 
