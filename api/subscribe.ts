@@ -23,14 +23,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(400).json({ error: 'Invalid email address' })
   }
 
-  // Build custom properties for segmentation
-  const properties: Record<string, string | number | null> = {
-    is_beta_candidate: isBetaCandidate ? 1 : 0,
-    lang,
-  }
-  if (utmSource) properties.utm_source = utmSource
-  if (utmMedium) properties.utm_medium = utmMedium
-  if (utmCampaign) properties.utm_campaign = utmCampaign
+  // Encode segmentation data into native Resend fields (custom properties require
+  // pre-defined schemas in Resend dashboard and are silently dropped otherwise).
+  // first_name: "BETA" marks beta candidates — visible as a column in the contact list
+  // and usable as a filter when targeting a broadcast ("First name is BETA").
+  // last_name: stores UTM source so you can see acquisition channel per contact.
+  const firstName = isBetaCandidate ? 'BETA' : undefined
+  const lastName = utmSource || undefined
 
   try {
     // Add contact — ignore duplicate errors so the confirmation email always sends
@@ -39,7 +38,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         email,
         audienceId: AUDIENCE_ID,
         unsubscribed: false,
-        properties,
+        ...(firstName !== undefined && { firstName }),
+        ...(lastName !== undefined && { lastName }),
       })
     } catch {
       // Contact already exists — continue to send the email anyway
