@@ -143,7 +143,7 @@ export default function EmailForm({
               />
               <span
                 className="text-sm leading-snug"
-                style={{ color: isHero ? 'rgba(255,255,255,0.82)' : '#55433D', fontSize: '14px' }}
+                style={{ color: isHero ? 'rgba(255,255,255,0.82)' : 'rgba(244,240,235,0.75)', fontSize: '14px' }}
               >
                 {betaCheckboxLabel}
               </span>
@@ -154,7 +154,7 @@ export default function EmailForm({
           {urgencyLine && (
             <p
               className="text-xs"
-              style={{ color: isHero ? 'rgba(255,255,255,0.55)' : '#88726C', fontSize: '13px' }}
+              style={{ color: isHero ? 'rgba(255,255,255,0.55)' : 'rgba(244,240,235,0.5)', fontSize: '13px' }}
             >
               {urgencyLine}
             </p>
