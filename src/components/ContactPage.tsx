@@ -59,7 +59,7 @@ export default function ContactPage({ onGoHome }: ContactPageProps) {
     <div className="min-h-screen bg-[#FAF6F1] pt-24 pb-16">
       {/* Page Header (Mauve & Lavender theme background) */}
       <section className="relative overflow-hidden bg-primary-container/40 border-b border-primary/5 py-12 px-6">
-        {/* Soft radial bloom behind the title */}
+        {/* Soft radial lumia behind the title */}
         <div
           className="absolute right-0 top-0 w-96 h-full pointer-events-none"
           style={{ background: 'radial-gradient(ellipse 60% 80% at 80% 50%, rgba(123,94,167,0.08), transparent)' }}

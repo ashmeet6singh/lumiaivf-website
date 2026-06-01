@@ -2,9 +2,19 @@ import { motion } from 'framer-motion'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import { useLanguage } from '../contexts/LanguageContext'
 import EmailForm from './EmailForm'
+import { WAITLIST_COUNT } from '../config/waitlist'
+
+function interpolate(template: string, values: Record<string, string | number>): string {
+  return template.replace(/\{(\w+)\}/g, (_, key) => String(values[key] ?? `{${key}}`))
+}
+
+function waitlistNoun(count: number, lang: string): string {
+  if (lang === 'pl') return count === 1 ? 'kobiety' : 'kobiet'
+  return count === 1 ? 'woman' : 'women'
+}
 
 export default function CtaSection() {
-  const { t } = useLanguage()
+  const { t, language } = useLanguage()
   const { ref, isInView } = useScrollReveal()
 
   return (
@@ -24,7 +34,7 @@ export default function CtaSection() {
         </h2>
 
         <p className="text-inverse-on-surface/85 text-lg">
-          {t.cta.subheadline}
+          {interpolate(t.cta.subheadline, { count: WAITLIST_COUNT, noun: waitlistNoun(WAITLIST_COUNT, language) })}
         </p>
 
         <EmailForm
@@ -32,6 +42,8 @@ export default function CtaSection() {
           placeholder={t.cta.emailPlaceholder}
           buttonLabel={t.cta.ctaButton}
           thankyouMessage={t.cta.thankyou}
+          betaCheckboxLabel={t.cta.betaCheckboxLabel}
+          urgencyLine={t.cta.urgencyLine}
         />
       </motion.div>
     </section>

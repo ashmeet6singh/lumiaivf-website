@@ -9,9 +9,15 @@ export const en = {
     headline: 'Track meds, scans & appointments — without stress.',
     subheadline: 'Lumia is the IVF app that logs a dose, scan, or mood in one tap. See your full IVF timeline. Share with your partner. Stay on track.',
     emailPlaceholder: 'Your email address',
-    ctaButton: 'Notify me',
+    ctaButton: 'Join the waitlist',
     thankyou: "You're on the list! We'll reach out when Lumia is ready. 🌸",
-    socialProof: 'Join hundreds of women waiting for the best app to track IVF — finally built around the whole journey.',
+    socialProof: 'Join {count} {noun} already on the waitlist',
+    earlyAccessLine: 'Be among the first to try Lumia',
+    releasePill: 'Early access · 2026',
+    betaBlockHeading: 'First 30 beta testers get a free yearly subscription',
+    betaBlockBody: "We're looking for women currently going through IVF who want early access in exchange for honest feedback. The first 30 people who join and opt in to beta testing get a full yearly subscription.",
+    betaCheckboxLabel: "I'm currently going through IVF — include me in the beta",
+    urgencyLine: '⚡ 30 beta spots available · Free yearly subscription for testers',
   },
   features: [
     {
@@ -94,10 +100,12 @@ export const en = {
   ],
   cta: {
     headline: 'Be the first to know when Lumia is ready.',
-    subheadline: 'Join hundreds of women waiting for a warm IVF pregnancy app that actually understands the journey.',
+    subheadline: 'Join {count} {noun} waiting for a warm IVF app that actually understands the journey.',
     emailPlaceholder: 'Your email address',
-    ctaButton: 'Notify me',
+    ctaButton: 'Join the waitlist',
     thankyou: "You're on the list! We'll reach out when Lumia is ready. 🌸",
+    betaCheckboxLabel: "I'm currently going through IVF and would like to join the beta (free yearly subscription for first 30 testers)",
+    urgencyLine: '⚡ 30 beta spots available · Free yearly subscription for testers',
   },
   footer: {
     tagline: 'A warm companion for your IVF journey.',

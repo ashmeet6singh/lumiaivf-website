@@ -24,10 +24,10 @@ When the user gives the build command, use everything in this file plus the file
 
 **Lumia** is a warm, empathetic mobile web app for women going through IVF (in-vitro fertilisation) treatment.
 
-- **Source code:** `/Users/ashmeetsingh/Projects/Bloom APP/`
-- **Live app:** [bloom-ivf.netlify.app](https://bloom-ivf.netlify.app)
+- **Source code:** `/Users/ashmeetsingh/Projects/Lumia APP/`
+- **Live app:** [lumia-ivf.netlify.app](https://lumia-ivf.netlify.app)
 - **Status:** Prototype. Currently being tested with one real user (the developer's wife). No backend, no auth, no multi-user — all data lives in localStorage.
-- **App's CLAUDE.md** (full technical context): `/Users/ashmeetsingh/Projects/Bloom APP/CLAUDE.md`
+- **App's CLAUDE.md** (full technical context): `/Users/ashmeetsingh/Projects/Lumia APP/CLAUDE.md`
 
 ### What it does
 - Tracks daily IVF medications with time-based reminders
@@ -85,7 +85,7 @@ IVF is emotionally taxing and physically complex. The treatment cycle spans week
 - **Encouraging, celebratory** — celebrates the act of logging and self-care, not just outcomes
 - **Direct, second-person** — *"Where are you in your journey?"*, *"This helps us label your appointments"*
 - **Plain language** — no medical jargon overload; technical terms are introduced gently
-- **Subtle growth/bloom emoji** — 🌱 🌿 🌸 — used sparingly to reinforce the growth metaphor; never gratuitous
+- **Subtle growth/lumia emoji** — 🌱 🌿 🌸 — used sparingly to reinforce the growth metaphor; never gratuitous
 
 ### Sample phrases (from the actual app)
 
@@ -132,7 +132,7 @@ Both are loaded from Google Fonts (see app's `index.html` for the link tags).
 
 ### Logo / mark
 
-- `brand/favicon.svg` — the abstract bloom motif used in the app
+- `brand/favicon.svg` — the abstract lumia motif used in the app
 - iOS PWA meta: title is just *"Lumia"*
 
 ---
@@ -154,7 +154,7 @@ When the user gives the go-ahead to scaffold the website, use:
 - **Email-capture provider:** undecided. Options to discuss when build begins:
   - Netlify Forms (zero backend, free tier, simplest)
   - Mailchimp / ConvertKit / Resend / Buttondown (lets you send the launch email directly)
-- **Domain:** TBD (currently the app is at `bloom-ivf.netlify.app`)
+- **Domain:** TBD (currently the app is at `lumia-ivf.netlify.app`)
 - **Number of pages:** unknown — could start as a single coming-soon page and grow
 
 ---
@@ -175,7 +175,7 @@ Lumia Website/
     └── pl.ts              ← Polish i18n dictionary
 ```
 
-**Note:** the files in `brand/` and `copy/` are **snapshots**, not live links. If the app's tokens or copy change, they need to be re-copied from `/Users/ashmeetsingh/Projects/Bloom APP/`.
+**Note:** the files in `brand/` and `copy/` are **snapshots**, not live links. If the app's tokens or copy change, they need to be re-copied from `/Users/ashmeetsingh/Projects/Lumia APP/`.
 
 ---
 

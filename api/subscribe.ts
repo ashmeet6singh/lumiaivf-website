@@ -12,10 +12,25 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
   const email = ((req.body?.email as string) ?? '').trim().toLowerCase()
   const lang = (req.body?.lang as string) === 'pl' ? 'pl' : 'en'
+  const isBetaCandidate = Boolean(req.body?.is_beta_candidate)
+
+  // UTM params — stored as contact properties for list segmentation
+  const utmSource = ((req.body?.utm_source as string) ?? '').trim().slice(0, 100)
+  const utmMedium = ((req.body?.utm_medium as string) ?? '').trim().slice(0, 100)
+  const utmCampaign = ((req.body?.utm_campaign as string) ?? '').trim().slice(0, 100)
 
   if (!email || !email.includes('@') || !email.includes('.')) {
     return res.status(400).json({ error: 'Invalid email address' })
   }
+
+  // Build custom properties for segmentation
+  const properties: Record<string, string | number | null> = {
+    is_beta_candidate: isBetaCandidate ? 1 : 0,
+    lang,
+  }
+  if (utmSource) properties.utm_source = utmSource
+  if (utmMedium) properties.utm_medium = utmMedium
+  if (utmCampaign) properties.utm_campaign = utmCampaign
 
   try {
     // Add contact — ignore duplicate errors so the confirmation email always sends
@@ -24,6 +39,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         email,
         audienceId: AUDIENCE_ID,
         unsubscribed: false,
+        properties,
       })
     } catch {
       // Contact already exists — continue to send the email anyway

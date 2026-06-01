@@ -12,9 +12,15 @@ export const pl: typeof en = {
     headline: 'Śledź leki, badania i wizyty — bez stresu.',
     subheadline: 'Lumia to aplikacja IVF, która zapisuje leki, badania lub nastrój jednym dotknięciem. Zobacz swoją pełną oś czasu IVF. Dziel ją z partnerem. Trzymaj rękę na pulsie.',
     emailPlaceholder: 'Twój adres e-mail',
-    ctaButton: 'Powiadom mnie',
+    ctaButton: 'Dołącz do listy',
     thankyou: 'Jesteś na liście! Damy znać, gdy Lumia będzie gotowa. 🌸',
-    socialProof: 'Dołącz do setek kobiet czekających na najlepszą aplikację do śledzenia IVF — stworzoną dla całej podróży.',
+    socialProof: 'Dołącz do {count} {noun} na liście oczekujących',
+    earlyAccessLine: 'Bądź jedną z pierwszych, które wypróbują Lumię',
+    releasePill: 'Wczesny dostęp · 2026',
+    betaBlockHeading: 'Pierwszych 30 testerek dostanie roczną subskrypcję za darmo',
+    betaBlockBody: 'Szukamy kobiet, które są teraz w trakcie IVF i chcą wczesnego dostępu w zamian za szczery feedback. Pierwsze 30 osób, które dołączą i zaznaczą opcję bety, dostanie pełną roczną subskrypcję.',
+    betaCheckboxLabel: 'Jestem w trakcie IVF — dołącz mnie do bety',
+    urgencyLine: '⚡ 30 miejsc w becie · Roczna subskrypcja za darmo dla testerek',
   },
   features: [
     {
@@ -97,10 +103,12 @@ export const pl: typeof en = {
   ],
   cta: {
     headline: 'Bądź pierwsza, gdy Lumia będzie gotowa.',
-    subheadline: 'Dołącz do setek kobiet czekających na ciepłą aplikację ciążową IVF, która naprawdę rozumie tę podróż.',
+    subheadline: 'Dołącz do {count} {noun} czekających na ciepłą aplikację IVF, która naprawdę rozumie tę podróż.',
     emailPlaceholder: 'Twój adres e-mail',
-    ctaButton: 'Powiadom mnie',
+    ctaButton: 'Dołącz do listy',
     thankyou: 'Jesteś na liście! Damy znać, gdy Lumia będzie gotowa. 🌸',
+    betaCheckboxLabel: 'Jestem teraz w trakcie IVF i chcę dołączyć do bety (roczna subskrypcja za darmo dla pierwszych 30 testerek)',
+    urgencyLine: '⚡ 30 miejsc w becie · Roczna subskrypcja za darmo dla testerek',
   },
   footer: {
     tagline: 'Ciepły towarzysz Twojej podróży IVF.',

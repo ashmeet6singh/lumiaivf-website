@@ -5,7 +5,7 @@ import path from 'path';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const OUT_DIR = path.join(__dirname, '..', 'public', 'screenshots');
 
-const BASE_URL = 'https://bloom-ivf.netlify.app';
+const BASE_URL = 'https://lumia-ivf.netlify.app';
 
 const TODAY = '2026-05-28';
 
@@ -193,7 +193,7 @@ async function captureSet(language) {
 
   // Seed localStorage before React boots
   await context.addInitScript((s) => {
-    localStorage.setItem('bloom-app-storage', JSON.stringify(s));
+    localStorage.setItem('lumia-app-storage', JSON.stringify(s));
   }, seed);
 
   const page = await context.newPage();

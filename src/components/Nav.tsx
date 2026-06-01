@@ -52,7 +52,13 @@ export default function Nav({ onGoHome, onGoContact, onGoArticles }: NavProps) {
           onClick={onGoHome}
           className="flex items-center gap-2.5 cursor-pointer text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 rounded-md"
         >
-          <LumiaLogo />
+          <span
+            className={`flex items-center justify-center rounded-full transition-all duration-300 ${
+              atTop ? 'bg-white/20 p-1' : ''
+            }`}
+          >
+            <LumiaLogo />
+          </span>
           <span
             className={`font-display font-semibold text-xl tracking-tight transition-colors duration-300 ${
               atTop ? 'text-white' : 'text-on-surface'

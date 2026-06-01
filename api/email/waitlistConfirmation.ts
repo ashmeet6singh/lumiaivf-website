@@ -53,10 +53,23 @@ export function waitlistConfirmationHtml(email: string, lang: 'en' | 'pl' = 'en'
           <!-- Header bar -->
           <tr>
             <td style="background:linear-gradient(135deg,#7B5EA7 0%,#994529 100%);padding:32px 40px;text-align:center;">
-              <div style="width:64px;height:64px;background:rgba(255,255,255,0.15);border-radius:16px;margin:0 auto 16px;">
-                <span style="font-size:32px;line-height:64px;display:block;">🌸</span>
+              <div style="margin:0 auto 10px;width:48px;height:48px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 64 64" fill="none">
+                  <defs>
+                    <radialGradient id="eOrb" cx="42%" cy="34%" r="80%">
+                      <stop offset="0%" stop-color="#FFD9A8"/>
+                      <stop offset="40%" stop-color="#E78FA6"/>
+                      <stop offset="74%" stop-color="#B1577C"/>
+                      <stop offset="100%" stop-color="#943E63"/>
+                    </radialGradient>
+                  </defs>
+                  <g transform="translate(0 2)">
+                    <path d="M10 32.5 C 19 49 43 49 52 32.5" stroke="#943E63" stroke-width="5" stroke-linecap="round" opacity="0.92"/>
+                    <circle cx="31" cy="31" r="11.5" fill="url(#eOrb)"/>
+                  </g>
+                </svg>
               </div>
-              <p style="margin:0;color:rgba(255,255,255,0.85);font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;">Lumia</p>
+              <p style="margin:0;font-family:Georgia,serif;font-size:20px;font-weight:600;color:#ffffff;letter-spacing:-0.3px;">Lumia</p>
             </td>
           </tr>
 
