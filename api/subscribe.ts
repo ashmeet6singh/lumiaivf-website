@@ -41,10 +41,19 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         unsubscribed: false,
         ...(firstName !== undefined && { firstName }),
         ...(lastName !== undefined && { lastName }),
-        ...(isBetaCandidate && { segments: [{ id: BETA_SEGMENT_ID }] }),
       })
     } catch {
       // Contact already exists — continue to send the email anyway
+    }
+
+    // Add to BETA signups segment via dedicated endpoint (segments field on
+    // contacts.create is silently ignored by Resend's current API)
+    if (isBetaCandidate) {
+      try {
+        await resend.contacts.segments.add({ email, segmentId: BETA_SEGMENT_ID })
+      } catch {
+        // Non-fatal — contact is on the main list, segment add failed
+      }
     }
 
     const subject = lang === 'pl'
