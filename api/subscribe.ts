@@ -4,6 +4,7 @@ import { waitlistConfirmationHtml } from './email/waitlistConfirmation.js'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 const AUDIENCE_ID = process.env.RESEND_AUDIENCE_ID!
+const BETA_SEGMENT_ID = 'c030814f-9c2e-4ad7-96ec-a3ceb49ec084'
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== 'POST') {
@@ -40,6 +41,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         unsubscribed: false,
         ...(firstName !== undefined && { firstName }),
         ...(lastName !== undefined && { lastName }),
+        ...(isBetaCandidate && { segments: [{ id: BETA_SEGMENT_ID }] }),
       })
     } catch {
       // Contact already exists — continue to send the email anyway
