@@ -7,8 +7,9 @@ import { renderToStaticMarkup } from 'react-dom/server'
 import { StaticRouter } from 'react-router'
 import App from './App'
 import { articles } from './content/articles/index'
+import { plArticles } from './content/articles/pl/index'
 
-export { articles }
+export { articles, plArticles }
 
 export function render(url: string): string {
   return renderToStaticMarkup(

@@ -39,19 +39,20 @@ function Site() {
     document.documentElement.lang = language
   }, [language])
 
+  const articlesPath = language === 'pl' ? '/pl/artykuly' : '/articles'
   const onGoHome = () => navigate('/')
   const onGoContact = () => navigate('/contact')
   const onGoToPage = (page: 'home' | 'contact' | 'articles') => {
     if (page === 'home') navigate('/')
     else if (page === 'contact') navigate('/contact')
-    else if (page === 'articles') navigate('/articles')
+    else if (page === 'articles') navigate(articlesPath)
   }
 
   return (
     <div className="bg-background text-on-surface relative">
       <ScrollToTop />
       <RouteHead />
-      <Nav onGoHome={onGoHome} onGoContact={onGoContact} onGoArticles={() => navigate('/articles')} />
+      <Nav onGoHome={onGoHome} onGoContact={onGoContact} onGoArticles={() => navigate(articlesPath)} />
 
       <main>
         <Routes>
@@ -75,6 +76,8 @@ function Site() {
           <Route path="/contact" element={<ContactPage onGoHome={onGoHome} />} />
           <Route path="/articles" element={<ArticlesIndex />} />
           <Route path="/articles/:slug" element={<ArticlePage />} />
+          <Route path="/pl/artykuly" element={<ArticlesIndex />} />
+          <Route path="/pl/artykuly/:slug" element={<ArticlePage />} />
         </Routes>
       </main>
 
@@ -96,8 +99,15 @@ function Site() {
 }
 
 export default function App() {
+  // Derive the initial language from the URL so /pl/* routes render in Polish
+  // on the server (StaticRouter) AND on first client render (BrowserRouter),
+  // avoiding an English flash / hydration mismatch. Must NOT read
+  // navigator/localStorage here — those would diverge between server and client.
+  const { pathname } = useLocation()
+  const initialLanguage = pathname.startsWith('/pl') ? 'pl' : 'en'
+
   return (
-    <LanguageProvider>
+    <LanguageProvider initialLanguage={initialLanguage}>
       <Site />
     </LanguageProvider>
   )

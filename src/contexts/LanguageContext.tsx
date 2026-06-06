@@ -2,7 +2,7 @@ import React, { createContext, useContext, useState } from 'react'
 import { en } from '../i18n/en'
 import { pl } from '../i18n/pl'
 
-type Language = 'en' | 'pl'
+export type Language = 'en' | 'pl'
 type Strings = typeof en
 
 interface LanguageContextType {
@@ -17,8 +17,11 @@ const LanguageContext = createContext<LanguageContextType>({
   setLanguage: () => {},
 })
 
-export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [language, setLanguageState] = useState<Language>('en')
+export const LanguageProvider: React.FC<{ children: React.ReactNode; initialLanguage?: Language }> = ({
+  children,
+  initialLanguage = 'en',
+}) => {
+  const [language, setLanguageState] = useState<Language>(initialLanguage)
 
   const setLanguage = (lang: Language) => {
     setLanguageState(lang)

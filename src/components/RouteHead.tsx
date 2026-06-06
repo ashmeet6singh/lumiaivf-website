@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { useLocation, useParams } from 'react-router-dom'
 import { articles } from '../content/articles/index'
+import { plArticles } from '../content/articles/pl/index'
 
 const DEFAULT_TITLE = 'Lumia — Your IVF app, finally built for you'
 const DEFAULT_DESCRIPTION =
@@ -26,6 +27,20 @@ function getMetaForPath(pathname: string, slug?: string): RouteMeta {
       title: 'IVF Articles & Guides — Lumia',
       description:
         'Honest, plainspoken guides to IVF — covering treatment options, success rates, costs, and what to expect at every phase.',
+    }
+  }
+  if (pathname === '/pl/artykuly') {
+    return {
+      title: 'Artykuły o in vitro — Lumia',
+      description:
+        'Przewodniki o in vitro pisane prostym językiem — koszty, refundacja, przebieg procedury i to, czego się spodziewać na każdym etapie.',
+    }
+  }
+  // Polish article pages
+  if (pathname.startsWith('/pl/artykuly/') && slug) {
+    const plArticle = plArticles.find((a) => a.slug === slug)
+    if (plArticle) {
+      return { title: `${plArticle.title} — Lumia`, description: plArticle.metaDescription }
     }
   }
   if (slug) {

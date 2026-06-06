@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom'
 import { articles } from '../content/articles/index'
+import { plArticles } from '../content/articles/pl/index'
+import { useLanguage } from '../contexts/LanguageContext'
 
 const ARTICLE_ICONS: Record<string, string> = {
   'iui-vs-ivf': '🔬',
@@ -8,6 +10,13 @@ const ARTICLE_ICONS: Record<string, string> = {
   'how-much-does-ivf-cost-us': '🇺🇸',
   'best-ivf-tracking-app': '📱',
   'ivf-timeline-what-to-expect': '🗓️',
+  // Polish articles
+  'ile-kosztuje-in-vitro': '💰',
+  'in-vitro-refundacja': '🏛️',
+  'in-vitro-co-to': '🌱',
+  'jak-dziala-in-vitro': '🗓️',
+  'in-vitro-cena': '🧾',
+  'aplikacja-do-sledzenia-in-vitro': '📱',
 }
 
 const ARTICLE_DESCRIPTIONS: Record<string, string> = {
@@ -17,9 +26,18 @@ const ARTICLE_DESCRIPTIONS: Record<string, string> = {
   'how-much-does-ivf-cost-us': 'IVF pricing in the US — clinic fees, medications, add-ons, and which states mandate insurance coverage.',
   'best-ivf-tracking-app': 'What a genuinely useful IVF pregnancy tracker app should do — and why most period trackers fall short.',
   'ivf-timeline-what-to-expect': 'A phase-by-phase walkthrough of the IVF journey, from first scans to the two-week wait.',
+  // Polish articles
+  'ile-kosztuje-in-vitro': 'Ile kosztuje in vitro prywatnie, co wchodzi w cenę, a co dochodzi osobno — i kiedy procedura jest bezpłatna.',
+  'in-vitro-refundacja': 'Kto kwalifikuje się do rządowego programu, co obejmuje refundacja i co zmieniło się w 2026 roku.',
+  'in-vitro-co-to': 'Prosty przewodnik: czym jest zapłodnienie pozaustrojowe (IVF) i na czym polega cała procedura.',
 }
 
 export default function ArticlesIndex() {
+  const { language, t } = useLanguage()
+  const isPl = language === 'pl'
+  const list = isPl ? plArticles : articles
+  const articleBase = isPl ? '/pl/artykuly' : '/articles'
+
   return (
     <div className="bg-surface min-h-screen">
       {/* Page header */}
@@ -28,15 +46,15 @@ export default function ArticlesIndex() {
         style={{ background: 'linear-gradient(160deg, #7B5EA7 0%, #994529 100%)' }}
       >
         <div className="max-w-3xl mx-auto text-center">
-          <span className="text-white/70 text-sm font-medium">Lumia Guides</span>
+          <span className="text-white/70 text-sm font-medium">{t.articles.indexEyebrow}</span>
           <h1
             className="font-display font-bold text-white mt-3 leading-tight"
             style={{ fontSize: 'clamp(1.9rem, 4vw, 2.8rem)', lineHeight: '1.15', textWrap: 'balance' } as React.CSSProperties}
           >
-            Understanding IVF — Honest Guides for the Journey
+            {t.articles.indexTitle}
           </h1>
           <p className="text-white/85 text-lg mt-4 max-w-xl mx-auto leading-relaxed">
-            Plain-language articles about IVF treatment, costs, success rates, and what to expect — written to inform, not overwhelm.
+            {t.articles.indexSubtitle}
           </p>
         </div>
       </div>
@@ -52,10 +70,10 @@ export default function ArticlesIndex() {
       <div className="py-16 md:py-20 px-6">
         <div className="max-w-3xl mx-auto">
           <div className="flex flex-col gap-4">
-            {articles.map((article) => (
+            {list.map((article) => (
               <Link
                 key={article.slug}
-                to={`/articles/${article.slug}`}
+                to={`${articleBase}/${article.slug}`}
                 className="group bg-white rounded-2xl px-6 py-5 flex items-start gap-4 hover:shadow-card transition-all duration-200 border border-[#7B5EA7]/8"
               >
                 <span className="text-2xl flex-shrink-0 mt-0.5" aria-hidden="true">
@@ -69,11 +87,11 @@ export default function ArticlesIndex() {
                     {ARTICLE_DESCRIPTIONS[article.slug] ?? article.metaDescription}
                   </p>
                   <span className="inline-block mt-2 text-primary text-sm font-medium">
-                    Read →
+                    {t.articles.read}
                   </span>
                 </div>
                 <span className="text-sm text-on-surface-variant/50 flex-shrink-0 mt-0.5 hidden sm:block">
-                  {article.readingTime} min
+                  {article.readingTime} {t.articles.minRead}
                 </span>
               </Link>
             ))}
@@ -82,16 +100,16 @@ export default function ArticlesIndex() {
           {/* Soft CTA */}
           <div className="mt-14 bg-[#7B5EA7]/5 rounded-2xl border border-[#7B5EA7]/15 px-6 py-8 text-center">
             <p className="font-display font-semibold text-on-surface text-lg">
-              Going through IVF right now?
+              {t.articles.indexCtaTitle}
             </p>
             <p className="text-on-surface-variant text-sm mt-2 leading-relaxed max-w-md mx-auto">
-              Lumia is an IVF app designed to track your medications, scan results, and emotions in one warm, private place. Join the waitlist.
+              {t.articles.indexCtaBody}
             </p>
             <Link
               to="/#waitlist"
               className="inline-flex items-center mt-4 px-6 py-2.5 rounded-full bg-primary text-white text-sm font-semibold hover:bg-primary/90 transition-colors duration-150"
             >
-              Join the waitlist
+              {t.articles.indexCtaButton}
             </Link>
           </div>
         </div>

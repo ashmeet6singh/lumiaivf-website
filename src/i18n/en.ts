@@ -180,4 +180,27 @@ export const en = {
     formSubmit: 'Send Message',
     formSuccess: 'Thank you! Your message has been sent. We will get back to you soon. 🌸',
   },
+  articles: {
+    // Index page
+    indexEyebrow: 'Lumia Guides',
+    indexTitle: 'Understanding IVF — Honest Guides for the Journey',
+    indexSubtitle:
+      'Plain-language articles about IVF treatment, costs, success rates, and what to expect — written to inform, not overwhelm.',
+    read: 'Read →',
+    indexCtaTitle: 'Going through IVF right now?',
+    indexCtaBody:
+      'Lumia is an IVF app designed to track your medications, scan results, and emotions in one warm, private place. Join the waitlist.',
+    indexCtaButton: 'Join the waitlist',
+    // Article page
+    breadcrumbHome: 'Home',
+    breadcrumbArticles: 'Articles',
+    minRead: 'min read',
+    faqHeading: 'Frequently Asked Questions',
+    disclaimerLabel: 'Medical disclaimer: ',
+    articleCtaTitle: 'Track your IVF journey with Lumia',
+    articleCtaBody:
+      'Medications, scan results, appointments, and mood — all in one warm, private place. Join the waitlist for early access.',
+    articleCtaButton: 'Join the waitlist',
+    backToAll: '← Back to all articles',
+  },
 }

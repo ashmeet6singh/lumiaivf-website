@@ -183,4 +183,27 @@ export const pl: typeof en = {
     formSubmit: 'Wyślij wiadomość',
     formSuccess: 'Dziękujemy! Twoja wiadomość została wysłana. Odpowiemy tak szybko, jak to możliwe. 🌸',
   },
+  articles: {
+    // Strona z listą artykułów
+    indexEyebrow: 'Przewodniki Lumia',
+    indexTitle: 'Zrozumieć in vitro — szczere przewodniki po tej drodze',
+    indexSubtitle:
+      'Artykuły pisane prostym językiem o leczeniu in vitro, kosztach, refundacji i tym, czego się spodziewać — po to, by informować, nie przytłaczać.',
+    read: 'Czytaj →',
+    indexCtaTitle: 'Jesteś teraz w trakcie in vitro?',
+    indexCtaBody:
+      'Lumia to aplikacja do in vitro, która pomaga śledzić leki, wyniki badań i emocje w jednym ciepłym, prywatnym miejscu. Dołącz do listy oczekujących.',
+    indexCtaButton: 'Dołącz do listy',
+    // Strona artykułu
+    breadcrumbHome: 'Główna',
+    breadcrumbArticles: 'Artykuły',
+    minRead: 'min czytania',
+    faqHeading: 'Najczęściej zadawane pytania',
+    disclaimerLabel: 'Zastrzeżenie medyczne: ',
+    articleCtaTitle: 'Śledź swoją drogę in vitro z Lumią',
+    articleCtaBody:
+      'Leki, wyniki badań, wizyty i nastrój — wszystko w jednym ciepłym, prywatnym miejscu. Dołącz do listy oczekujących, by uzyskać wczesny dostęp.',
+    articleCtaButton: 'Dołącz do listy',
+    backToAll: '← Wróć do wszystkich artykułów',
+  },
 }

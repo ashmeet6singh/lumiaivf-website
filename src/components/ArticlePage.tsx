@@ -1,13 +1,20 @@
 import { Navigate, Link, useParams } from 'react-router-dom'
 import { articles } from '../content/articles/index'
+import { plArticles } from '../content/articles/pl/index'
+import { useLanguage } from '../contexts/LanguageContext'
 import ArticleRenderer from './ArticleRenderer'
 
 export default function ArticlePage() {
   const { slug } = useParams<{ slug: string }>()
-  const article = articles.find((a) => a.slug === slug)
+  const { language, t } = useLanguage()
+  const isPl = language === 'pl'
+  const list = isPl ? plArticles : articles
+  const articleBase = isPl ? '/pl/artykuly' : '/articles'
+  const dateLocale = isPl ? 'pl-PL' : 'en-GB'
+  const article = list.find((a) => a.slug === slug)
 
   if (!article) {
-    return <Navigate to="/articles" replace />
+    return <Navigate to={articleBase} replace />
   }
 
   return (
@@ -20,9 +27,9 @@ export default function ArticlePage() {
         <div className="max-w-3xl mx-auto">
           {/* Breadcrumb */}
           <nav className="flex items-center gap-2 text-sm text-white/60 mb-6" aria-label="Breadcrumb">
-            <Link to="/" className="hover:text-white/80 transition-colors">Home</Link>
+            <Link to="/" className="hover:text-white/80 transition-colors">{t.articles.breadcrumbHome}</Link>
             <span>/</span>
-            <Link to="/articles" className="hover:text-white/80 transition-colors">Articles</Link>
+            <Link to={articleBase} className="hover:text-white/80 transition-colors">{t.articles.breadcrumbArticles}</Link>
             <span>/</span>
             <span className="text-white/80 truncate max-w-[200px]">{article.title}</span>
           </nav>
@@ -42,9 +49,9 @@ export default function ArticlePage() {
             </p>
           )}
           <p className="text-white/55 text-sm mt-5">
-            {article.readingTime} min read
+            {article.readingTime} {t.articles.minRead}
             {' · '}
-            {new Date(article.datePublished).toLocaleDateString('en-GB', {
+            {new Date(article.datePublished).toLocaleDateString(dateLocale, {
               day: 'numeric',
               month: 'long',
               year: 'numeric',
@@ -72,7 +79,7 @@ export default function ArticlePage() {
                 className="font-display font-bold text-on-surface mb-6"
                 style={{ fontSize: 'clamp(1.35rem, 2.5vw, 1.75rem)', lineHeight: '1.25' }}
               >
-                Frequently Asked Questions
+                {t.articles.faqHeading}
               </h2>
               <div className="flex flex-col gap-5">
                 {article.faq.map((item, i) => (
@@ -92,7 +99,7 @@ export default function ArticlePage() {
           {/* Disclaimer */}
           <div className="mt-10 bg-[#7B5EA7]/5 rounded-2xl border border-[#7B5EA7]/15 px-5 py-4">
             <p className="text-xs text-on-surface-variant leading-relaxed">
-              <strong className="font-semibold text-on-surface">Medical disclaimer: </strong>
+              <strong className="font-semibold text-on-surface">{t.articles.disclaimerLabel}</strong>
               {article.disclaimer}
             </p>
           </div>
@@ -100,26 +107,26 @@ export default function ArticlePage() {
           {/* Waitlist CTA */}
           <div className="mt-10 bg-white rounded-2xl border border-[#7B5EA7]/10 px-6 py-8 text-center">
             <p className="font-display font-bold text-on-surface text-xl">
-              Track your IVF journey with Lumia
+              {t.articles.articleCtaTitle}
             </p>
             <p className="text-on-surface-variant text-sm mt-2 leading-relaxed max-w-md mx-auto">
-              Medications, scan results, appointments, and mood — all in one warm, private place. Join the waitlist for early access.
+              {t.articles.articleCtaBody}
             </p>
             <Link
               to="/#waitlist"
               className="inline-flex items-center mt-4 px-6 py-2.5 rounded-full bg-primary text-white text-sm font-semibold hover:bg-primary/90 transition-colors duration-150"
             >
-              Join the waitlist
+              {t.articles.articleCtaButton}
             </Link>
           </div>
 
           {/* Back link */}
           <div className="mt-8 text-center">
             <Link
-              to="/articles"
+              to={articleBase}
               className="text-sm text-primary hover:text-primary/80 transition-colors"
             >
-              ← Back to all articles
+              {t.articles.backToAll}
             </Link>
           </div>
         </div>

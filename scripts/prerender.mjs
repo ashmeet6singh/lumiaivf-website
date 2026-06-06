@@ -45,7 +45,7 @@ function jsonLdScript(obj) {
   return `<script type="application/ld+json">${JSON.stringify(obj)}</script>`
 }
 
-function buildArticleJsonLd(article, url) {
+function buildArticleJsonLd(article, url, lang = 'en') {
   const articleSchema = {
     '@context': 'https://schema.org',
     '@type': 'Article',
@@ -53,6 +53,7 @@ function buildArticleJsonLd(article, url) {
     description: article.metaDescription,
     datePublished: article.datePublished,
     dateModified: article.dateModified ?? article.datePublished,
+    inLanguage: lang,
     author: { '@type': 'Organization', name: 'Lumia' },
     publisher: {
       '@type': 'Organization',
@@ -65,6 +66,7 @@ function buildArticleJsonLd(article, url) {
   const faqSchema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
+    inLanguage: lang,
     mainEntity: article.faq.map((item) => ({
       '@type': 'Question',
       name: item.question,
@@ -80,7 +82,15 @@ function buildArticleJsonLd(article, url) {
 
 // ── Route table ───────────────────────────────────────────────────────────────
 
-function buildRouteTable(articles) {
+// The EN and PL articles indexes are a true translation pair, so they
+// cross-reference each other via hreflang (with x-default → the English index).
+const INDEX_ALTERNATES = [
+  { hreflang: 'en', href: `${SITE_URL}/articles` },
+  { hreflang: 'pl', href: `${SITE_URL}/pl/artykuly` },
+  { hreflang: 'x-default', href: `${SITE_URL}/articles` },
+]
+
+function buildRouteTable(articles, plArticles = []) {
   const websiteSchema = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
@@ -96,6 +106,7 @@ function buildRouteTable(articles) {
         'Lumia is a warm IVF pregnancy tracker app that logs every injection, scan, and emotion in one place. Join the waitlist for early access.',
       canonical: `${SITE_URL}/`,
       jsonLd: jsonLdScript(websiteSchema),
+      lang: 'en',
     },
     {
       url: '/contact',
@@ -103,6 +114,7 @@ function buildRouteTable(articles) {
       description: 'Get in touch with the Lumia team. We read every message.',
       canonical: `${SITE_URL}/contact`,
       jsonLd: '',
+      lang: 'en',
     },
     {
       url: '/articles',
@@ -111,13 +123,35 @@ function buildRouteTable(articles) {
         'Honest, plainspoken guides to IVF — covering treatment options, success rates, costs, and what to expect at every phase.',
       canonical: `${SITE_URL}/articles`,
       jsonLd: '',
+      lang: 'en',
+      alternates: INDEX_ALTERNATES,
     },
     ...articles.map((article) => ({
       url: `/articles/${article.slug}`,
       title: `${article.title} — Lumia`,
       description: article.metaDescription,
       canonical: `${SITE_URL}/articles/${article.slug}`,
-      jsonLd: buildArticleJsonLd(article, `${SITE_URL}/articles/${article.slug}`),
+      jsonLd: buildArticleJsonLd(article, `${SITE_URL}/articles/${article.slug}`, 'en'),
+      lang: 'en',
+    })),
+    // ── Polish (PL) routes ──────────────────────────────────────────────────
+    {
+      url: '/pl/artykuly',
+      title: 'Artykuły o in vitro — Lumia',
+      description:
+        'Przewodniki o in vitro pisane prostym językiem — koszty, refundacja, przebieg procedury i to, czego się spodziewać na każdym etapie.',
+      canonical: `${SITE_URL}/pl/artykuly`,
+      jsonLd: '',
+      lang: 'pl',
+      alternates: INDEX_ALTERNATES,
+    },
+    ...plArticles.map((article) => ({
+      url: `/pl/artykuly/${article.slug}`,
+      title: `${article.title} — Lumia`,
+      description: article.metaDescription,
+      canonical: `${SITE_URL}/pl/artykuly/${article.slug}`,
+      jsonLd: buildArticleJsonLd(article, `${SITE_URL}/pl/artykuly/${article.slug}`, 'pl'),
+      lang: 'pl',
     })),
   ]
 
@@ -126,8 +160,21 @@ function buildRouteTable(articles) {
 
 // ── HTML injection ────────────────────────────────────────────────────────────
 
-function injectIntoHtml(template, { title, description, canonical, jsonLd, bodyHtml }) {
+function buildHreflangLinks(alternates) {
+  if (!alternates || alternates.length === 0) return ''
+  return alternates
+    .map(
+      (alt) =>
+        `<link rel="alternate" hreflang="${escapeHtml(alt.hreflang)}" href="${escapeHtml(alt.href)}" />`
+    )
+    .join('\n    ')
+}
+
+function injectIntoHtml(template, { title, description, canonical, jsonLd, bodyHtml, lang = 'en', alternates }) {
   let html = template
+
+  // Set <html lang> for the route's language (template ships lang="en")
+  html = html.replace(/<html lang="[^"]*">/, `<html lang="${lang}">`)
 
   // Replace <title>
   html = html.replace(/<title>[^<]*<\/title>/, `<title>${escapeHtml(title)}</title>`)
@@ -138,9 +185,24 @@ function injectIntoHtml(template, { title, description, canonical, jsonLd, bodyH
     `<meta name="description" content="${escapeHtml(description)}" />`
   )
 
-  // Inject canonical + JSON-LD just before </head>
+  // Per-route og:url (template hardcodes the homepage)
+  html = html.replace(
+    /<meta property="og:url"[^>]*>/,
+    `<meta property="og:url" content="${escapeHtml(canonical)}" />`
+  )
+
+  // og:locale + alternate locale, so social previews advertise the right language
+  const ogLocale = lang === 'pl' ? 'pl_PL' : 'en_GB'
+  const ogAltLocale = lang === 'pl' ? 'en_GB' : 'pl_PL'
+  const ogLocaleTags =
+    `<meta property="og:locale" content="${ogLocale}" />\n    ` +
+    `<meta property="og:locale:alternate" content="${ogAltLocale}" />`
+
+  // Inject canonical + hreflang + og:locale + JSON-LD just before </head>
   const headInsert = [
     `<link rel="canonical" href="${escapeHtml(canonical)}" />`,
+    buildHreflangLinks(alternates),
+    ogLocaleTags,
     jsonLd,
   ]
     .filter(Boolean)
@@ -162,18 +224,25 @@ function injectIntoHtml(template, { title, description, canonical, jsonLd, bodyH
 function buildSitemap(routes) {
   const today = new Date().toISOString().split('T')[0]
   const urls = routes
-    .map(
-      (r) => `  <url>
-    <loc>${r.canonical}</loc>
+    .map((r) => {
+      // Emit xhtml:link hreflang alternates inside the <url> for translation pairs
+      const altLinks = (r.alternates ?? [])
+        .map(
+          (alt) =>
+            `\n    <xhtml:link rel="alternate" hreflang="${alt.hreflang}" href="${alt.href}" />`
+        )
+        .join('')
+      return `  <url>
+    <loc>${r.canonical}</loc>${altLinks}
     <lastmod>${today}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>${r.url === '/' ? '1.0' : '0.7'}</priority>
   </url>`
-    )
+    })
     .join('\n')
 
   return `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 ${urls}
 </urlset>`
 }
@@ -228,10 +297,10 @@ async function main() {
     process.exit(1)
   }
   const ssrBundleUrl = pathToFileURL(ssrBundlePath).href
-  const { render, articles } = await import(ssrBundleUrl)
+  const { render, articles, plArticles } = await import(ssrBundleUrl)
 
   // 4. Build route table
-  const routes = buildRouteTable(articles)
+  const routes = buildRouteTable(articles, plArticles)
   console.log(`Routes to prerender: ${routes.length}\n`)
 
   // 5. Render each route
@@ -247,6 +316,8 @@ async function main() {
         canonical: route.canonical,
         jsonLd: route.jsonLd,
         bodyHtml,
+        lang: route.lang ?? 'en',
+        alternates: route.alternates,
       })
 
       // Write output file
