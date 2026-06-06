@@ -82,6 +82,13 @@ function buildArticleJsonLd(article, url, lang = 'en') {
 
 // ── Route table ───────────────────────────────────────────────────────────────
 
+// The EN and PL homepages are a true translation pair.
+const HOME_ALTERNATES = [
+  { hreflang: 'en', href: `${SITE_URL}/` },
+  { hreflang: 'pl', href: `${SITE_URL}/pl` },
+  { hreflang: 'x-default', href: `${SITE_URL}/` },
+]
+
 // The EN and PL articles indexes are a true translation pair, so they
 // cross-reference each other via hreflang (with x-default → the English index).
 const INDEX_ALTERNATES = [
@@ -107,6 +114,17 @@ function buildRouteTable(articles, plArticles = []) {
       canonical: `${SITE_URL}/`,
       jsonLd: jsonLdScript(websiteSchema),
       lang: 'en',
+      alternates: HOME_ALTERNATES,
+    },
+    {
+      url: '/pl',
+      title: 'Lumia — Ciepła aplikacja do in vitro, stworzona dla Ciebie',
+      description:
+        'Lumia to ciepła aplikacja do IVF, która zapisuje każdy zastrzyk, wynik badania i emocje w jednym miejscu. Dołącz do listy oczekujących.',
+      canonical: `${SITE_URL}/pl`,
+      jsonLd: jsonLdScript({ ...websiteSchema, inLanguage: 'pl' }),
+      lang: 'pl',
+      alternates: HOME_ALTERNATES,
     },
     {
       url: '/contact',

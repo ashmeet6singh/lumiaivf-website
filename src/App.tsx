@@ -40,10 +40,11 @@ function Site() {
   }, [language])
 
   const articlesPath = language === 'pl' ? '/pl/artykuly' : '/articles'
-  const onGoHome = () => navigate('/')
+  const homePath = language === 'pl' ? '/pl' : '/'
+  const onGoHome = () => navigate(homePath)
   const onGoContact = () => navigate('/contact')
   const onGoToPage = (page: 'home' | 'contact' | 'articles') => {
-    if (page === 'home') navigate('/')
+    if (page === 'home') navigate(homePath)
     else if (page === 'contact') navigate('/contact')
     else if (page === 'articles') navigate(articlesPath)
   }
@@ -73,6 +74,20 @@ function Site() {
               </>
             }
           />
+          <Route path="/pl" element={
+            <>
+              <Hero />
+              {t.features.map((feature, index) => (
+                <FeatureSection
+                  key={feature.id}
+                  feature={feature}
+                  reverse={index % 2 !== 0}
+                  featureIndex={index}
+                />
+              ))}
+              <CtaSection />
+            </>
+          } />
           <Route path="/contact" element={<ContactPage onGoHome={onGoHome} />} />
           <Route path="/articles" element={<ArticlesIndex />} />
           <Route path="/articles/:slug" element={<ArticlePage />} />

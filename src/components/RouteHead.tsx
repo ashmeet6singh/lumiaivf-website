@@ -29,6 +29,13 @@ function getMetaForPath(pathname: string, slug?: string): RouteMeta {
         'Honest, plainspoken guides to IVF — covering treatment options, success rates, costs, and what to expect at every phase.',
     }
   }
+  if (pathname === '/pl') {
+    return {
+      title: 'Lumia — Ciepła aplikacja do in vitro, stworzona dla Ciebie',
+      description:
+        'Lumia to ciepła aplikacja do IVF, która zapisuje każdy zastrzyk, wynik badania i emocje w jednym miejscu. Dołącz do listy oczekujących.',
+    }
+  }
   if (pathname === '/pl/artykuly') {
     return {
       title: 'Artykuły o in vitro — Lumia',

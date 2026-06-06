@@ -106,7 +106,7 @@ export default function ArticlesIndex() {
               {t.articles.indexCtaBody}
             </p>
             <Link
-              to="/#waitlist"
+              to={isPl ? '/pl#waitlist' : '/#waitlist'}
               className="inline-flex items-center mt-4 px-6 py-2.5 rounded-full bg-primary text-white text-sm font-semibold hover:bg-primary/90 transition-colors duration-150"
             >
               {t.articles.indexCtaButton}
