@@ -13,10 +13,11 @@ export const inVitroRefundacja: Article = {
   },
   readingTime: 8,
   datePublished: '2026-06-06',
+  dateModified: '2026-06-07',
   sections: [
     {
       type: 'p',
-      text: 'Od 1 czerwca 2024 r. w Polsce działa rządowy „Program wsparcia in vitro" — finansowane z budżetu państwa leczenie niepłodności metodą zapłodnienia pozaustrojowego. Dla wielu par to różnica między kilkunastoma tysiącami złotych za cykl a procedurą całkowicie bezpłatną.',
+      text: 'Od 1 czerwca 2024 r. w Polsce działa rządowy „Program wsparcia in vitro" — finansowane z budżetu państwa leczenie niepłodności metodą zapłodnienia pozaustrojowego. Dla wielu par to różnica między kilkunastoma tysiącami złotych za cykl a procedurą objętą programem, za którą — poza ewentualnymi opłatami wstępnymi w klinice — nie płacą z własnej kieszeni.',
     },
     {
       type: 'p',
@@ -55,6 +56,28 @@ export const inVitroRefundacja: Article = {
     },
     {
       type: 'h2',
+      text: 'Za co klinika może pobrać dodatkową opłatę',
+      id: 'dodatkowe-oplaty',
+    },
+    {
+      type: 'p',
+      text: 'Program pokrywa samą procedurę, ale w praktyce niektóre kliniki pobierają opłaty za kroki, które dzieją się jeszcze zanim formalnie trafisz do programu. Warto o tym wiedzieć, żeby słowo „bezpłatne" nie zaskoczyło Cię rachunkiem przy pierwszej wizycie. Najczęściej dotyczy to:',
+    },
+    {
+      type: 'list',
+      items: [
+        'Pierwszej konsultacji / wizyty wstępnej — w zależności od kliniki zwykle ok. 200–450 zł.',
+        'Badań diagnostycznych przed kwalifikacją, np. badania nasienia (seminogram) — od ok. 180 zł; razem z dodatkowymi badaniami hormonalnymi koszt potrafi sięgnąć ok. 600 zł.',
+        'Dodatkowych usług niewchodzących w zakres programu (np. część diagnostyki preimplantacyjnej / PGT).',
+      ],
+    },
+    {
+      type: 'callout',
+      variant: 'info',
+      text: 'Zanim umówisz pierwszą wizytę, zapytaj klinikę z wyprzedzeniem, co dokładnie jest objęte programem, a za co zapłacisz osobno. Stawki różnią się między placówkami, więc warto poznać je wcześniej i wpisać do swojego budżetu.',
+    },
+    {
+      type: 'h2',
       text: 'Kto się kwalifikuje — kryteria wieku',
       id: 'kryteria-wieku',
     },
@@ -88,6 +111,15 @@ export const inVitroRefundacja: Article = {
     {
       type: 'p',
       text: 'Na początku 2026 r. weszła w życie aktualizacja programu, która doprecyzowała m.in. zasady dotyczące diagnostyki preimplantacyjnej (PGT), wymogów oraz odstępów czasowych między kolejnymi cyklami. Zmiany mają porządkować realizację programu — jeśli planujesz leczenie, warto potwierdzić obowiązujące zasady bezpośrednio w ośrodku lub w oficjalnym źródle.',
+    },
+    {
+      type: 'h2',
+      text: 'Leki — refundowane, ale nie zawsze za darmo',
+      id: 'leki',
+    },
+    {
+      type: 'p',
+      text: 'Od 1 lipca 2024 r. leki do stymulacji jajników (gonadotropiny) oraz leczenie wspomagające po transferze są refundowane w ramach programu, co znacznie obniża ich koszt. Pamiętaj jednak, że refundacja oznacza niższą cenę, a nie zawsze 0 zł — to, ile dopłacisz, zależy od protokołu i przepisanych preparatów. Najlepiej zapytać ośrodek, na jaki wydatek na leki masz się przygotować.',
     },
     {
       type: 'h2',
@@ -143,6 +175,11 @@ export const inVitroRefundacja: Article = {
       question: 'Do kiedy działa program refundacji in vitro?',
       answer:
         'Rządowy „Program wsparcia in vitro" rozpoczął się 1 czerwca 2024 r. i potrwa do 31 grudnia 2028 r. Na początku 2026 r. wprowadzono aktualizację doprecyzowującą część zasad. Aktualne warunki najlepiej potwierdzić w realizującym ośrodku lub w oficjalnym źródle.',
+    },
+    {
+      question: 'Czy in vitro w ramach programu jest w 100% bezpłatne?',
+      answer:
+        'Sama procedura objęta programem jest bezpłatna, ale część klinik pobiera opłaty za pierwszą konsultację lub badania przed kwalifikacją (np. badanie nasienia — łącznie nawet ok. 600 zł, zależnie od kliniki). Leki do stymulacji są refundowane, czyli tańsze, choć nie zawsze całkowicie darmowe. Przed pierwszą wizytą warto zapytać klinikę, co dokładnie pokrywa program, a za co zapłacisz osobno.',
     },
   ],
   disclaimer:
