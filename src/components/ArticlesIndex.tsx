@@ -30,6 +30,9 @@ const ARTICLE_DESCRIPTIONS: Record<string, string> = {
   'ile-kosztuje-in-vitro': 'Ile kosztuje in vitro prywatnie, co wchodzi w cenę, a co dochodzi osobno — i kiedy procedura jest bezpłatna.',
   'in-vitro-refundacja': 'Kto kwalifikuje się do rządowego programu, co obejmuje refundacja i co zmieniło się w 2026 roku.',
   'in-vitro-co-to': 'Prosty przewodnik: czym jest zapłodnienie pozaustrojowe (IVF) i na czym polega cała procedura.',
+  'jak-dziala-in-vitro': 'Procedura in vitro krok po kroku — od stymulacji i punkcji po zapłodnienie, hodowlę zarodków i transfer.',
+  'in-vitro-cena': 'Cena in vitro rozłożona na czynniki pierwsze: za co płacisz, co dochodzi osobno i jak zaplanować budżet.',
+  'aplikacja-do-sledzenia-in-vitro': 'Czego szukać w aplikacji do śledzenia in vitro i dlaczego zwykły kalendarz miesiączkowy nie wystarcza.',
 }
 
 export default function ArticlesIndex() {
